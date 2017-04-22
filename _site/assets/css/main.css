@@ -17,25 +17,38 @@ html {
  * Site header
  */
 header {
-  background-image: url("../img/night.jpg");
+  background-image: url("../img/sky.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
   display: flex;
   justify-content: flex-end;
-  align-items: baseline;
+  align-items: center;
   text-align: center;
   flex-direction: column; }
   header > div {
-    margin-left: 20px;
     margin-bottom: 25vh;
-    color: #CEB481; }
+    color: #E1E2EF; }
     header > div h1 {
       text-transform: uppercase;
       font-size: 48px;
       font-family: "Cardo", serif;
       font-weight: 100;
       margin-bottom: 10px; }
+    header > div h1 > span {
+      position: relative;
+      display: inline-block; }
+    header > div h1 > span:before, header > div h1 > span:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      border-bottom: 2px solid;
+      width: 70px;
+      /* half of limiter*/ }
+    header > div h1 > span:before {
+      right: 100%; }
+    header > div h1 > span:after {
+      left: 100%; }
     header > div h2 {
       font-family: "Pathway Gothic One", sans-serif;
       font-size: 36px;
@@ -44,6 +57,7 @@ header {
 .author_image {
   content: url("../img/me.jpg");
   height: 250px;
+  margin: 0 auto;
   border-radius: 50%; }
 
 @media screen and (max-width: 600px) {
@@ -51,6 +65,10 @@ header {
     font-size: 32px; }
   header > div h2 {
     font-size: 26px; }
+  header > div h1 > span:before, header > div h1 > span:after {
+    top: 250%;
+    left: 25%;
+    width: 150px; }
 
   .author_image {
     height: 150px; } }
@@ -59,8 +77,20 @@ p {
   margin: 0 auto 20px; }
 
 nav {
-  margin-top: -55px;
-  min-height: 55px; }
+  margin-top: -65px;
+  min-height: 65px; }
+
+.navbar {
+  background-color: #3d9640; }
+  .navbar > div li {
+    margin: 0 55px; }
+    .navbar > div li a {
+      font-family: "Cardo", serif;
+      font-size: 20px;
+      font-weight: 200 !important;
+      color: #E1E2EF !important; }
+    .navbar > div li a:hover {
+      color: #05204A !important; }
 
 .navbar-toggler:hover {
   cursor: pointer; }

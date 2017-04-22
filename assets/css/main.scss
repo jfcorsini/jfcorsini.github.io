@@ -4,7 +4,7 @@
 
 @charset "utf-8";
 
-$main-image: "../img/night.jpg";
+$main-image: "../img/sky.jpg";
 $author-image: "../img/me.jpg";
 
 $primary-font-family: 'Cardo', serif;
@@ -12,11 +12,11 @@ $secondary-font-family: 'Pathway Gothic One', sans-serif;
 
 // Color pallete
 
-$color1 : #B18C72;
-$color2 : #DFA482;
-$color3 : #CEB481;
-$color4 : #B5BA84;
-$color5 : #82BFA0;
+$color-white     : #E1E2EF;
+$color-black     : #02020A;
+$color-pink      : #BFACAA;
+$color-primary   : #3d9640;
+$color-secondary : #05204A;
 
 @import 
     url('https://fonts.googleapis.com/css?family=Cardo'),

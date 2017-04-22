@@ -1,6 +1,25 @@
 nav {
-    margin-top: -55px;
-    min-height: 55px;
+    margin-top: -65px;
+    min-height: 65px;
+}
+
+.navbar {
+    background-color: $color-primary;
+
+    > div li {
+        margin: 0 55px;
+
+        a {
+            font-family: $primary-font-family;
+            font-size: 20px;
+            font-weight: 200 !important;
+            color: $color-white !important;
+        }
+
+        a:hover {
+            color: $color-secondary !important;
+        }
+    }
 }
 
 .navbar-toggler:hover {

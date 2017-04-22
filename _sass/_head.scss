@@ -10,14 +10,13 @@ header{
 
 	display: flex;
 	justify-content: flex-end;
-	align-items: baseline;
+	align-items: center;
 	text-align: center;
 	flex-direction: column;
 
 	> div {
-		margin-left: 20px;
 		margin-bottom: 25vh;
-		color:$color3;
+		color:$color-white;
 		
 		h1 {
 			text-transform: uppercase;
@@ -26,6 +25,24 @@ header{
 			font-weight: 100;
 
 			margin-bottom: 10px;
+		}
+
+		h1 > span{
+			position: relative;
+			display: inline-block;
+		}
+		h1 > span:before, h1 > span:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			border-bottom: 2px solid;
+			width: 70px; /* half of limiter*/
+		}
+		h1 > span:before{
+			right: 100%;
+		}
+		h1 > span:after{
+			left: 100%;
 		}
 
 		h2 {
@@ -41,9 +58,9 @@ header{
 .author_image {
 	content: url($author-image);
 	height: 250px;
+	margin: 0 auto;
 	border-radius: 50%;
 }
-
 
 
 @include media-query($on-palm) {
@@ -54,6 +71,12 @@ header{
 
 		h2 {
 		font-size: 26px;
+		}
+
+		h1 > span:before, h1 > span:after{
+			top: 250%;
+			left: 25%;
+			width: 150px;
 		}
 	}
 
