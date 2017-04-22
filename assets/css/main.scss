@@ -7,20 +7,22 @@
 $main-image: "../img/sky.jpg";
 $author-image: "../img/me.jpg";
 
-$primary-font-family: 'Cardo', serif;
-$secondary-font-family: 'Pathway Gothic One', sans-serif;
+$font1: 'Cardo', serif;
+$font2: 'Pathway Gothic One', sans-serif;
+$font3: 'Open Sans', cursive;
 
 // Color pallete
 
-$color-white     : #E1E2EF;
-$color-black     : #02020A;
-$color-pink      : #BFACAA;
-$color-primary   : #3d9640;
-$color-secondary : #05204A;
+$color1 : #22435f;
+$color2 : #0a1a13;
+$color3 : #E1E2EF;
+$color4 : #91989e;
+$color5 : #1d2b22;
 
 @import 
     url('https://fonts.googleapis.com/css?family=Cardo'),
     url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One'),
+    url('https://fonts.googleapis.com/css?family=Julius+Sans+One'),
     url('https://fonts.googleapis.com/css?family=Open+Sans')
 ;
 
@@ -43,5 +45,10 @@ $on-laptop:        800px;
 @import
     "reset",
     "head",
-    "navbar"
+    "navbar",
+    "content",
+    "profile",
+    "experience",
+    "education",
+    "habilities"
 ;

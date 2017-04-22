@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Cardo");
 @import url("https://fonts.googleapis.com/css?family=Pathway+Gothic+One");
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 /**
  * Reset some basic elements
@@ -27,7 +28,7 @@ header {
   text-align: center;
   flex-direction: column; }
   header > div {
-    margin-bottom: 25vh;
+    margin-bottom: 45vh;
     color: #E1E2EF; }
     header > div h1 {
       text-transform: uppercase;
@@ -66,9 +67,9 @@ header {
   header > div h2 {
     font-size: 26px; }
   header > div h1 > span:before, header > div h1 > span:after {
-    top: 250%;
-    left: 25%;
-    width: 150px; }
+    top: 230%;
+    left: 30%;
+    width: 125px; }
 
   .author_image {
     height: 150px; } }
@@ -78,10 +79,11 @@ p {
 
 nav {
   margin-top: -65px;
+  padding-top: 65px;
   min-height: 65px; }
 
 .navbar {
-  background-color: #3d9640; }
+  background-color: #22435f; }
   .navbar > div li {
     margin: 0 55px; }
     .navbar > div li a {
@@ -90,7 +92,7 @@ nav {
       font-weight: 200 !important;
       color: #E1E2EF !important; }
     .navbar > div li a:hover {
-      color: #05204A !important; }
+      color: #0a1a13 !important; }
 
 .navbar-toggler:hover {
   cursor: pointer; }
@@ -103,3 +105,36 @@ nav {
 
   .navbar .navbar-collapse {
     text-align: center; } }
+.main-content {
+  background-color: #E1E2EF;
+  height: 600px;
+  display: flex;
+  justify-content: center; }
+  .main-content h2 {
+    margin-top: 50px;
+    color: #0a1a13;
+    font-weight: 100;
+    font-family: "Open Sans", cursive;
+    font-size: 55px; }
+    .main-content h2 > span {
+      position: relative;
+      display: inline-block; }
+    .main-content h2 > span:after {
+      content: '';
+      position: absolute;
+      top: 140%;
+      left: -4em;
+      border-bottom: 2px solid;
+      width: 12em; }
+
+@media screen and (max-width: 800px) {
+  .main-content h2 > span:after {
+    width: 6em;
+    left: -1.5em; } }
+#experience {
+  background-color: #91989e;
+  color: #1d2b22; }
+
+#habilities {
+  background-color: #91989e;
+  color: #1d2b22; }

@@ -1,23 +1,25 @@
 nav {
     margin-top: -65px;
+    padding-top: 65px;
     min-height: 65px;
 }
 
 .navbar {
-    background-color: $color-primary;
+    background-color: $color1;
+    > div {
+        li {
+            margin: 0 55px;
 
-    > div li {
-        margin: 0 55px;
+            a {
+                font-family: $font1;
+                font-size: 20px;
+                font-weight: 200 !important;
+                color: $color3 !important;
+            }
 
-        a {
-            font-family: $primary-font-family;
-            font-size: 20px;
-            font-weight: 200 !important;
-            color: $color-white !important;
-        }
-
-        a:hover {
-            color: $color-secondary !important;
+            a:hover {
+                color: $color2 !important;
+            }
         }
     }
 }
