@@ -1,0 +1,68 @@
+/**
+ * Site header
+ */
+
+header{
+	background-image: url($main-image);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	text-align: center;
+	flex-direction: column;
+
+	> div {
+		margin-left: 20px;
+		margin-bottom: 25vh;
+		color:$color3;
+		
+		h1 {
+			text-transform: uppercase;
+			font-size: 48px;
+			font-family: $primary-font-family;
+			font-weight: 100;
+
+			margin-bottom: 10px;
+		}
+
+		h2 {
+			font-family: $secondary-font-family;
+			font-size: 36px;
+			font-weight: 200;
+
+		}
+	}
+
+}
+
+.author_image {
+	content: url($author-image);
+	height: 250px;
+	border-radius: 50%;
+}
+
+
+
+@include media-query($on-palm) {
+	header > div {
+		h1 {
+		font-size: 32px;
+		}
+
+		h2 {
+		font-size: 26px;
+		}
+	}
+
+	.author_image {
+		height: 150px;
+	}
+}
+
+p {
+	width: 600px;
+ 	margin: 0 auto 20px;
+}

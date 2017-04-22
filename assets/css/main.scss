@@ -1,0 +1,47 @@
+---
+# This is my main CSS file
+---
+
+@charset "utf-8";
+
+$main-image: "../img/night.jpg";
+$author-image: "../img/me.jpg";
+
+$primary-font-family: 'Cardo', serif;
+$secondary-font-family: 'Pathway Gothic One', sans-serif;
+
+// Color pallete
+
+$color1 : #B18C72;
+$color2 : #DFA482;
+$color3 : #CEB481;
+$color4 : #B5BA84;
+$color5 : #82BFA0;
+
+@import 
+    url('https://fonts.googleapis.com/css?family=Cardo'),
+    url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One'),
+    url('https://fonts.googleapis.com/css?family=Open+Sans')
+;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+@import
+    "reset",
+    "head",
+    "navbar"
+;

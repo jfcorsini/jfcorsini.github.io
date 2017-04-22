@@ -1,0 +1,20 @@
+nav {
+    margin-top: -55px;
+    min-height: 55px;
+}
+
+.navbar-toggler:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        margin:0 auto;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
