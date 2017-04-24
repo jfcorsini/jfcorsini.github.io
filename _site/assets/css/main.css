@@ -73,68 +73,45 @@ header {
 
   .author_image {
     height: 150px; } }
-p {
+.index {
   width: 600px;
+  height: 150px;
   margin: 0 auto 20px; }
-
-nav {
-  margin-top: -65px;
-  padding-top: 65px;
-  min-height: 65px; }
-
-.navbar {
-  background-color: #22435f; }
-  .navbar > div li {
-    margin: 0 55px; }
-    .navbar > div li a {
-      font-family: "Cardo", serif;
-      font-size: 20px;
-      font-weight: 200 !important;
-      color: #E1E2EF !important; }
-    .navbar > div li a:hover {
-      color: #0a1a13 !important; }
-
-.navbar-toggler:hover {
-  cursor: pointer; }
-
-@media (min-width: 768px) {
-  .navbar .navbar-nav {
-    margin: 0 auto;
-    float: none;
-    vertical-align: top; }
-
-  .navbar .navbar-collapse {
-    text-align: center; } }
-.main-content {
-  background-color: #E1E2EF;
-  height: 600px;
-  display: flex;
-  justify-content: center; }
-  .main-content h2 {
-    margin-top: 50px;
-    color: #0a1a13;
-    font-weight: 100;
+  .index h1 {
+    margin: 35px 10px 25px;
+    font-size: 40px;
+    font-family: "Cardo", serif; }
+  .index p {
+    margin: 15px 10px;
+    font-size: 20px;
     font-family: "Open Sans", cursive;
-    font-size: 55px; }
-    .main-content h2 > span {
-      position: relative;
-      display: inline-block; }
-    .main-content h2 > span:after {
-      content: '';
-      position: absolute;
-      top: 140%;
-      left: -4em;
-      border-bottom: 2px solid;
-      width: 12em; }
+    font-weight: 100; }
+    .index p span {
+      font-weight: bold; }
 
-@media screen and (max-width: 800px) {
-  .main-content h2 > span:after {
-    width: 6em;
-    left: -1.5em; } }
-#experience {
-  background-color: #91989e;
-  color: #1d2b22; }
-
-#habilities {
-  background-color: #91989e;
-  color: #1d2b22; }
+@media screen and (max-width: 600px) {
+  .index {
+    width: 100%; } }
+footer {
+  width: 100%;
+  display: inline-block;
+  margin: 2em 0 -25px;
+  height: 70px;
+  background-color: #22435f; }
+  footer .copyright {
+    width: 50%;
+    float: left; }
+    @media screen and (max-width: 600px) {
+      footer .copyright {
+        width: 100%; } }
+    footer .copyright p {
+      padding-left: 10%;
+      color: white;
+      font-size: 0.7em;
+      line-height: 70px;
+      text-transform: capitalize;
+      letter-spacing: 1px; }
+      @media screen and (max-width: 600px) {
+        footer .copyright p {
+          text-align: center;
+          padding: 0; } }
