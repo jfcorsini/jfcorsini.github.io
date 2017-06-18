@@ -11,6 +11,9 @@ dl, dd, ol, ul, figure, html {
   margin: 0;
   padding: 0; }
 
+body {
+  position: relative; }
+
 html {
   overflow-x: hidden; }
 
@@ -94,6 +97,9 @@ nav {
     .navbar > div li a:hover {
       color: #0a1a13 !important; }
 
+.active {
+  text-decoration: underline; }
+
 .navbar-toggler:hover {
   cursor: pointer; }
 
@@ -105,36 +111,3 @@ nav {
 
   .navbar .navbar-collapse {
     text-align: center; } }
-.main-content {
-  background-color: #E1E2EF;
-  height: 600px;
-  display: flex;
-  justify-content: center; }
-  .main-content h2 {
-    margin-top: 50px;
-    color: #0a1a13;
-    font-weight: 100;
-    font-family: "Open Sans", cursive;
-    font-size: 55px; }
-    .main-content h2 > span {
-      position: relative;
-      display: inline-block; }
-    .main-content h2 > span:after {
-      content: '';
-      position: absolute;
-      top: 140%;
-      left: -4em;
-      border-bottom: 2px solid;
-      width: 12em; }
-
-@media screen and (max-width: 800px) {
-  .main-content h2 > span:after {
-    width: 6em;
-    left: -1.5em; } }
-#experience {
-  background-color: #91989e;
-  color: #1d2b22; }
-
-#habilities {
-  background-color: #91989e;
-  color: #1d2b22; }
