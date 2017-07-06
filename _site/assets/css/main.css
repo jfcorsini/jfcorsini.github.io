@@ -24,14 +24,14 @@ header {
   background-image: url("../img/sky.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   text-align: center;
   flex-direction: column; }
   header > div {
-    margin-bottom: 45vh;
+    margin-bottom: 30vh;
     color: #E1E2EF; }
     header > div h1 {
       text-transform: uppercase;
@@ -60,8 +60,9 @@ header {
 
 .author_image {
   content: url("../img/me.jpg");
-  height: 250px;
+  height: 180px;
   margin: 0 auto;
+  margin: 50px 0 -80px;
   border-radius: 50%; }
 
 @media screen and (max-width: 600px) {
@@ -75,11 +76,8 @@ header {
     width: 125px; }
 
   .author_image {
-    height: 150px; } }
-p {
-  width: 600px;
-  margin: 0 auto 20px; }
-
+    margin: 30px 0 -80px;
+    height: 120px; } }
 nav {
   margin-top: -65px;
   padding-top: 65px;
@@ -111,3 +109,49 @@ nav {
 
   .navbar .navbar-collapse {
     text-align: center; } }
+#content {
+  margin: 0 50px; }
+  @media (max-width: 768px) {
+    #content {
+      margin: 0 80px; } }
+  #content > .row > div {
+    height: 600px;
+    padding: 50px 50px 0; }
+  #content .projects img {
+    width: 100%; }
+  #content .projects h1 {
+    text-align: center; }
+  #content .projects .project {
+    height: 300px;
+    margin: 30px 0;
+    background: #22A39F; }
+    #content .projects .project > div {
+      opacity: 0;
+      color: #FFE;
+      max-width: 100%;
+      padding: 20px 30px;
+      position: absolute; }
+    #content .projects .project:hover > div {
+      position: absolute;
+      top: 150px;
+      left: 0px;
+      opacity: 1; }
+    #content .projects .project img {
+      max-height: 100%;
+      object-fit: cover;
+      display: block;
+      width: calc(100% + 10px);
+      transition: opacity 0.35s, transform 0.35s;
+      transform: translate3d(-10px, 0, 0);
+      backface-visibility: hidden; }
+    #content .projects .project:hover img {
+      opacity: 0.2;
+      transform: translate3d(0, 0, 0); }
+
+footer {
+  height: 40px;
+  background-color: black;
+  color: white; }
+  footer p {
+    text-align: center;
+    vertical-align: middle; }
