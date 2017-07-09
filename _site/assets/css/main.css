@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Cardo");
-@import url("https://fonts.googleapis.com/css?family=Pathway+Gothic+One");
-@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab:100,200,400");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,200,300,400");
 /**
  * Reset some basic elements
  */
@@ -32,10 +30,88 @@ html {
     flex-wrap: wrap; }
     .body > div:nth-child(2) {
       overflow-y: initial; } }
-.presentation-div {
+.presentation {
   background-image: url("../img/sky.jpg");
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /*    justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 60px;*/ }
+  .presentation ul {
+    list-style: none; }
+  .presentation .presentation-center {
+    height: 90%;
+    display: flex;
+    justify-content: space-between; }
+    .presentation .presentation-center .presentation-center-content {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .presentation .presentation-center .presentation-center-content > * {
+        margin-left: 30px; }
+      .presentation .presentation-center .presentation-center-content h1 {
+        font-family: "Josefin Slab", serif;
+        font-weight: 200;
+        font-size: 4.5em; }
+      .presentation .presentation-center .presentation-center-content h2 {
+        font-family: "Lato", serif;
+        font-weight: 100;
+        font-size: 3em; }
+      .presentation .presentation-center .presentation-center-content p {
+        font-family: "sans-serif";
+        font-weight: 300;
+        font-size: 1.2em; }
+    .presentation .presentation-center .presentation-center-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .presentation .presentation-center .presentation-center-menu > div {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        min-height: 150px;
+        border: 1px #FF6138 solid; }
+        .presentation .presentation-center .presentation-center-menu > div a {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          color: #FF6138;
+          width: 120px;
+          position: relative; }
+          .presentation .presentation-center .presentation-center-menu > div a:hover {
+            color: #FF6138; }
+            .presentation .presentation-center .presentation-center-menu > div a:hover:after {
+              content: "";
+              position: absolute;
+              left: 10%;
+              right: 10%;
+              bottom: 10px;
+              top: 10px;
+              border-top: 1px #FF6138 solid;
+              border-bottom: 1px #FF6138 solid; }
+  .presentation .presentation-footer {
+    height: 10%; }
+    .presentation .presentation-footer ul {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center; }
+      .presentation .presentation-footer ul a {
+        margin-left: 25px;
+        color: white;
+        transition: color 0.5s; }
+        .presentation .presentation-footer ul a:hover {
+          color: #FF6138;
+          transition: color 0.5s; }
 
 .content div {
   margin: 20px 50px; }
