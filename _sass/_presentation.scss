@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
 
-    color: white;
+    color: $white;
 
     display: flex;
     flex-direction: column;
@@ -11,10 +11,6 @@
     ul {
         list-style: none;
     }
-
-/*    justify-content: flex-end;
-    align-items: center;
-    padding-bottom: 60px;*/
 
     .presentation-center {
         height: 90%;
@@ -62,7 +58,7 @@
                 justify-content: space-around;
                 min-height: 150px;
 
-                border: 1px $dark-primary-color solid;
+                border: 1px $white solid;
 
                 a {
                     flex: 1;
@@ -71,20 +67,20 @@
                     align-items: center;
                     justify-content: center;
                     text-decoration: none;
-                    color: $dark-primary-color;
+                    color: $white;
                     width: 120px;
                     position: relative;
                     &:hover {
-                        color: $dark-primary-color;
+                        color: $white;
                         &:after {
                             content: "";
                             position: absolute;
                             left: 10%;
                             right: 10%;
                             bottom: 10px;
-                            top: 10px;
-                            border-top: 1px $dark-primary-color solid;
-                            border-bottom: 1px $dark-primary-color solid;
+                            /*top: 10px;
+                            border-top: 1px $dark-primary-color solid;*/
+                            border-bottom: 1px $white solid;
                         }
                     }
                 }
@@ -101,11 +97,11 @@
 
             a {
                 margin-left: 25px;
-                color: white;
+                color: $white;
                 transition: color 0.5s;
 
                 &:hover {
-                    color: $dark-primary-color;
+                    color: $dark-secondary-color;
                     transition: color 0.5s;
                 }
             }

@@ -6,6 +6,8 @@
 
 $main-image: "../img/sky.jpg";
 $author-image: "../img/me.jpg";
+$content-image-3-me: "../img/3_me.jpg";
+$content-image-2-me: "../img/2_me.jpg";
 
 $heading-font: 'Josefin Slab', serif;
 $sub-heading-font: 'Lato', serif;
@@ -17,17 +19,17 @@ $white         : #E1E2EF;
 $black         : #202020;
 $neutral-color : #BEEB9F;
 
-$dark-seconday-color   : #00A388;
+$dark-secondary-color  : #00A388;
 $light-secondary-color : #79BD8F;
 $light-primary-color   : #FFFF9D;
-$dark-primary-color    : #FF6138;
+$dark-primary-color    : #FF6138; // Orange: FF6138
 
 @import 
     url('https://fonts.googleapis.com/css?family=Josefin+Slab:100,200,400'),
     url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400')
 ;
 
-$on-cellphone: 600px;
+$on-cellphone: 780px;
 $on-laptop: 800px;
 
 @import

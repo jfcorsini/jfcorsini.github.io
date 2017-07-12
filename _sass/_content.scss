@@ -1,5 +1,84 @@
 .content {
-    div {
-        margin: 20px 50px;
+    overflow-x: hidden;
+
+    h2 {
+        font-family: $heading-font;
+        font-weight: 400;
+        font-size: 1.8em;
+        margin-bottom: 60px;
+    }
+
+    p {
+        font-family: $text-font;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    #about {
+        background-color: $dark-secondary-color;
+        padding: 10% 15%;
+        color: $white;
+    }
+
+    .content-image {
+        display: flex;
+        flex-flow: row nowrap;
+        background-image: url($content-image-3-me);
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: cover;
+        min-height: 350px;
+
+        @media screen and (max-width: 1000px) {
+            background-image: url($content-image-2-me);
+        }
+    }
+
+    #projects {
+        background-color: $white;
+        padding: 10% 15%;
+        width: 100%;
+
+        .project {
+            flex: 1;
+            margin: 20px 0;
+
+            h2 {
+                margin-bottom: 40px;
+            }
+            h3 {
+                font-family: $sub-heading-font;
+                font-weight: 300;
+                font-size: 1.4em;
+                margin: 25px 0 10px;
+            }
+        }
+    }
+
+    #technologies {
+        color: $white;
+        height: 600px;
+        background-color: $dark-primary-color;
+        padding: 10% 15%;
+        width: 100%;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        height: 60px;
+        background-color: $white;
+
+        p {
+            font-size: 0.9em;
+            font-family: $heading-font;
+            margin: -5px 0 0;
+        }
+
+        #copyright {
+            padding: 10px 0;
+        }
     }
 }
