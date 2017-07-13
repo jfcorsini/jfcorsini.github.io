@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab:100,200,400");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,200,300,400");
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure, html {
+  margin: 0;
+  padding: 0; }
+
+body {
+  position: relative; }
+
+html {
+  overflow-x: hidden; }
+
+.body {
+  display: flex;
+  width: 100%; }
+  .body > div {
+    height: 100vh;
+    flex: 1;
+    flex-basis: 400px; }
+    .body > div:nth-child(2) {
+      overflow-y: scroll; }
+
+@media screen and (max-width: 780px) {
+  .body {
+    flex-wrap: wrap; }
+    .body > div:nth-child(2) {
+      overflow: initial; } }
+#presentation {
+  background-image: url("../img/sky.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #E1E2EF;
+  display: flex;
+  flex-direction: column; }
+  #presentation ul {
+    list-style: none; }
+  #presentation .presentation-center {
+    height: 90%;
+    display: flex;
+    justify-content: space-between; }
+    #presentation .presentation-center .presentation-center-content {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      #presentation .presentation-center .presentation-center-content > * {
+        margin-left: 30px; }
+      #presentation .presentation-center .presentation-center-content h1 {
+        font-family: "Josefin Slab", serif;
+        font-weight: 200;
+        font-size: 4.5em; }
+      #presentation .presentation-center .presentation-center-content h2 {
+        font-family: "Lato", serif;
+        font-weight: 100;
+        font-size: 3em; }
+      #presentation .presentation-center .presentation-center-content p {
+        font-family: "sans-serif";
+        font-weight: 300;
+        font-size: 1.2em; }
+    #presentation .presentation-center #menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      #presentation .presentation-center #menu > div {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        min-height: 150px;
+        border: 1px #E1E2EF solid; }
+        #presentation .presentation-center #menu > div .active {
+          color: #E1E2EF; }
+          #presentation .presentation-center #menu > div .active:after {
+            content: "";
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            bottom: 10px;
+            /*top: 10px;
+            border-top: 1px $dark-primary-color solid;*/
+            border-bottom: 1px #E1E2EF solid; }
+        #presentation .presentation-center #menu > div a {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          color: #E1E2EF;
+          width: 120px;
+          position: relative; }
+          #presentation .presentation-center #menu > div a:focus {
+            outline: none; }
+          #presentation .presentation-center #menu > div a:hover {
+            color: #E1E2EF; }
+            #presentation .presentation-center #menu > div a:hover:after {
+              content: "";
+              position: absolute;
+              left: 10%;
+              right: 10%;
+              bottom: 10px;
+              /*top: 10px;
+              border-top: 1px $dark-primary-color solid;*/
+              border-bottom: 1px #E1E2EF solid; }
+  #presentation .presentation-footer {
+    height: 10%; }
+    #presentation .presentation-footer ul {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center; }
+      #presentation .presentation-footer ul a {
+        margin-left: 25px;
+        color: #E1E2EF;
+        transition: color 0.5s; }
+        #presentation .presentation-footer ul a:hover {
+          color: #00A388;
+          transition: color 0.5s; }
+
+#content {
+  overflow-x: initial; }
+  #content h2 {
+    font-family: "Josefin Slab", serif;
+    font-weight: 400;
+    font-size: 1.8em;
+    margin-bottom: 60px; }
+  #content p {
+    font-family: "sans-serif";
+    font-size: 0.9em;
+    margin-bottom: 15px; }
+  #content #about {
+    background-color: #00A388;
+    padding: 10% 15%;
+    color: #E1E2EF; }
+  #content .content-image {
+    display: flex;
+    flex-flow: row nowrap;
+    background-image: url("../img/3_me.jpg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    min-height: 350px; }
+    @media screen and (max-width: 1000px) {
+      #content .content-image {
+        background-image: url("../img/2_me.jpg"); } }
+  #content #projects {
+    background-color: #E1E2EF;
+    padding: 10% 15%;
+    width: 100%; }
+    #content #projects .project {
+      flex: 1;
+      margin: 20px 0; }
+      #content #projects .project h2 {
+        margin-bottom: 40px; }
+      #content #projects .project h3 {
+        font-family: "Lato", serif;
+        font-weight: 300;
+        font-size: 1.4em;
+        margin: 25px 0 10px; }
+  #content #technologies {
+    color: #E1E2EF;
+    height: 600px;
+    background-color: #FF6138;
+    padding: 10% 15%;
+    width: 100%; }
+  #content footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 60px;
+    background-color: #E1E2EF; }
+    #content footer p {
+      font-size: 0.9em;
+      font-family: "Josefin Slab", serif;
+      margin: -5px 0 0; }
+    #content footer #copyright {
+      padding: 10px 0; }
