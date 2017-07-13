@@ -6,50 +6,35 @@
 
 $main-image: "../img/sky.jpg";
 $author-image: "../img/me.jpg";
+$content-image-3-me: "../img/3_me.jpg";
+$content-image-2-me: "../img/2_me.jpg";
 
-$font1: 'Cardo', serif;
-$font2: 'Pathway Gothic One', sans-serif;
-$font3: 'Open Sans', cursive;
+$heading-font: 'Josefin Slab', serif;
+$sub-heading-font: 'Lato', serif;
+$text-font: 'sans-serif';
 
 // Color pallete
 
-$color1 : #22435f;
-$color2 : #0a1a13;
-$color3 : #E1E2EF;
-$color4 : #91989e;
-$color5 : #1d2b22;
+$white         : #E1E2EF;
+$black         : #202020;
+$neutral-color : #BEEB9F;
+
+$dark-secondary-color  : #00A388;
+$light-secondary-color : #79BD8F;
+$light-primary-color   : #FFFF9D;
+$dark-primary-color    : #FF6138; // Orange: FF6138
 
 @import 
-    url('https://fonts.googleapis.com/css?family=Cardo'),
-    url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One'),
-    url('https://fonts.googleapis.com/css?family=Julius+Sans+One'),
-    url('https://fonts.googleapis.com/css?family=Open+Sans')
+    url('https://fonts.googleapis.com/css?family=Josefin+Slab:100,200,400'),
+    url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400')
 ;
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
+$on-cellphone: 780px;
+$on-laptop: 800px;
 
 @import
     "reset",
-    "head",
-    "construction"
-    //"navbar",
-    //"content",
-    //"profile",
-    //"experience",
-    //"education",
-    //"abilities"
+    "main-block",
+    "presentation",
+    "content"
 ;

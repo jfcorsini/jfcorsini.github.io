@@ -9,8 +9,9 @@ url: "http://jfcorsini.me"
 twitter_username: jfcorsini
 github_username:  jfcorsini
 
-# Build settings
-markdown: kramdown
-
 header_name: João F. Corsini
+<<<<<<< HEAD
+sub_header: Web Developer
+=======
 sub_header: Web developer
+>>>>>>> f38ac329af1d249ac1fe6446ed8cbbc8c8de1b67

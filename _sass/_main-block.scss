@@ -1,0 +1,23 @@
+// This will add details to the main block of the website: the two divs.
+
+.body {
+    display: flex;
+    width: 100%;
+    >div {
+        height: 100vh;
+        flex:1;
+        flex-basis: 400px;
+        &:nth-child(2) { 
+            overflow-y: scroll;
+        }
+    }
+}
+
+@media screen and (max-width: $on-cellphone) {
+    .body {
+        flex-wrap: wrap;
+        >div:nth-child(2) {
+            overflow: initial;
+        }
+    }
+}
