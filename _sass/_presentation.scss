@@ -1,4 +1,4 @@
-.presentation {
+#presentation {
     background-image: url($main-image);
     background-size: cover;
     background-position: center;
@@ -44,7 +44,7 @@
             }
         }
 
-        .presentation-center-menu {
+        #menu {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -60,6 +60,20 @@
 
                 border: 1px $white solid;
 
+                .active {
+                    color: $white;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        left: 10%;
+                        right: 10%;
+                        bottom: 10px;
+                        /*top: 10px;
+                        border-top: 1px $dark-primary-color solid;*/
+                        border-bottom: 1px $white solid;
+                    }
+                }
+
                 a {
                     flex: 1;
                     display: flex;
@@ -70,6 +84,9 @@
                     color: $white;
                     width: 120px;
                     position: relative;
+                    &:focus {
+                        outline: none;
+                    }
                     &:hover {
                         color: $white;
                         &:after {
