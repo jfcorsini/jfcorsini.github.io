@@ -50,6 +50,8 @@ html {
       justify-content: center; }
       #presentation .presentation-center .presentation-center-content > * {
         margin-left: 30px; }
+      #presentation .presentation-center .presentation-center-content a {
+        color: #E1E2EF; }
       #presentation .presentation-center .presentation-center-content h1 {
         font-family: "Josefin Slab", serif;
         font-weight: 200;
@@ -110,8 +112,10 @@ html {
               border-top: 1px $dark-primary-color solid;*/
               border-bottom: 1px #E1E2EF solid; }
   #presentation .presentation-footer {
-    height: 10%; }
+    height: 12%;
+    font-family: "Josefin Slab", serif; }
     #presentation .presentation-footer ul {
+      margin-bottom: 6px;
       display: flex;
       align-items: flex-end;
       justify-content: center; }

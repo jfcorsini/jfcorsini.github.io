@@ -26,6 +26,11 @@
             > * {
                 margin-left: 30px;
             }
+
+
+            a {
+                color: $white;
+            }
             
             h1 {
                 font-family: $heading-font;
@@ -106,8 +111,11 @@
     }
 
     .presentation-footer {
-        height: 10%;
+        height: 12%;
+        font-family: $heading-font;
+
         ul {
+            margin-bottom: 6px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
