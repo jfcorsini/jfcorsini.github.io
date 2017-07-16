@@ -57,7 +57,6 @@
 
     #technologies {
         color: $white;
-        height: 600px;
         background-color: $dark-primary-color;
         padding: 10% 15%;
         width: 100%;
@@ -68,17 +67,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        height: 60px;
         background-color: $white;
 
         p {
+            margin: 5px 0;
             font-size: 0.9em;
             font-family: $heading-font;
-            margin: -5px 0 0;
-        }
-
-        #copyright {
-            padding: 10px 0;
         }
     }
 }
