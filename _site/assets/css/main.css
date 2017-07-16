@@ -51,7 +51,10 @@ html {
       #presentation .presentation-center .presentation-center-content > * {
         margin-left: 30px; }
       #presentation .presentation-center .presentation-center-content a {
-        color: #E1E2EF; }
+        color: #E1E2EF;
+        text-decoration: none; }
+        #presentation .presentation-center .presentation-center-content a:hover {
+          text-decoration: underline; }
       #presentation .presentation-center .presentation-center-content h1 {
         font-family: "Josefin Slab", serif;
         font-weight: 200;
@@ -147,7 +150,7 @@ html {
     flex-flow: row nowrap;
     background-image: url("../img/3_me.jpg");
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: center center;
     background-size: cover;
     min-height: 350px; }
     @media screen and (max-width: 1000px) {
@@ -166,12 +169,26 @@ html {
         font-family: "Lato", serif;
         font-weight: 300;
         font-size: 1.4em;
-        margin: 25px 0 10px; }
+        margin: 25px 0 10px;
+        display: flex;
+        justify-content: space-between; }
+        #content #projects .project h3 a {
+          text-decoration: none;
+          color: #00A388;
+          transition: color 0.5s; }
+          #content #projects .project h3 a:hover {
+            color: #FF6138;
+            transition: color 0.5s; }
   #content #technologies {
     color: #E1E2EF;
     background-color: #FF6138;
     padding: 10% 15%;
     width: 100%; }
+    #content #technologies h3 {
+      font-family: "Lato", serif;
+      font-weight: 300;
+      font-size: 1.4em;
+      margin: 25px 0 10px; }
   #content footer {
     display: flex;
     flex-direction: column;
