@@ -148,6 +148,7 @@ html {
     #content #about a {
       color: #E1E2EF;
       font-weight: 100;
+      text-decoration: underline;
       transition: color 0.5s; }
       #content #about a:hover {
         color: #FFFF9D;
@@ -159,10 +160,18 @@ html {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    min-height: 350px; }
+    min-height: 400px; }
     @media screen and (max-width: 1000px) {
       #content .content-image {
         background-image: url("../img/2_me.jpg"); } }
+  #content .gorilla-image {
+    display: flex;
+    flex-flow: row nowrap;
+    background-image: url("../img/gorilla2.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    min-height: 350px; }
   #content #projects {
     background-color: #E1E2EF;
     padding: 10% 15%;
@@ -188,7 +197,7 @@ html {
             transition: color 0.5s; }
   #content #technologies {
     color: #E1E2EF;
-    background-color: #FF6138;
+    background-color: #00A388;
     padding: 10% 15%;
     width: 100%; }
     #content #technologies h3 {
@@ -196,6 +205,31 @@ html {
       font-weight: 300;
       font-size: 1.4em;
       margin: 25px 0 10px; }
+  #content #experiences {
+    background-color: #FF6138;
+    color: #E1E2EF;
+    padding: 10% 15%;
+    width: 100%; }
+    #content #experiences h3 {
+      font-family: "Lato", serif;
+      font-weight: 300;
+      font-size: 1.4em;
+      margin: 25px 0 10px; }
+      #content #experiences h3 a {
+        color: #E1E2EF;
+        text-decoration: underline;
+        font-weight: 300;
+        transition: color 0.5s; }
+        #content #experiences h3 a:hover {
+          color: #FFFF9D;
+          transition: color 0.5s; }
+    #content #experiences .experience .title {
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between; }
+    #content #experiences .experience p {
+      font-weight: 400;
+      font-size: 0.9em; }
   #content footer {
     display: flex;
     flex-direction: column;

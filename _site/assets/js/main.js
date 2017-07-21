@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    var menuIds = ["#menu-about", "#menu-projects", "#menu-technologies"];
-    var sectionIds = ["#about", "#projects", "#technologies"];
+    var menuIds = ["#menu-about", "#menu-projects", "#menu-experiences", "#menu-technologies"];
+    var sectionIds = ["#about", "#projects", "#experiences", "#technologies"];
 
     for (let i = 0; i < menuIds.length; i++) {
         $(menuIds[i]).on('click', function (event) {
@@ -21,7 +21,6 @@ $(document).ready(function(){
 
     function toggleActiveInArrayAtPosition(arr, pos) {
         for (let i = 0; i < arr.length; i++) {
-            console.log(i, pos);
             if (i == pos) {
                 $(arr[i]).addClass("active");
             } else {
