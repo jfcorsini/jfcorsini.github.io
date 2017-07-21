@@ -12,7 +12,7 @@ $(document).ready(function(){
     $("#content").scroll(function() {
         lastActiveId = 0;
         for (var i = 0; i < sectionIds.length; i++) {
-            pos = $(sectionIds[i]).offset().top;
+            pos = $(sectionIds[i]).offset().top - 250;
             if (pos < 0 && lastActiveId <= i) {
                 toggleActiveInArrayAtPosition(menuIds, i);
             }

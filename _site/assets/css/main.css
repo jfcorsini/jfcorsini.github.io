@@ -139,12 +139,19 @@ html {
     margin-bottom: 60px; }
   #content p {
     font-family: "sans-serif";
-    font-size: 0.9em;
-    margin-bottom: 15px; }
+    font-size: 1em;
+    margin-bottom: 25px; }
   #content #about {
     background-color: #00A388;
     padding: 10% 15%;
     color: #E1E2EF; }
+    #content #about a {
+      color: #E1E2EF;
+      font-weight: 100;
+      transition: color 0.5s; }
+      #content #about a:hover {
+        color: #FFFF9D;
+        transition: color 0.5s; }
   #content .content-image {
     display: flex;
     flex-flow: row nowrap;

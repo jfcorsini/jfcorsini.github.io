@@ -10,14 +10,25 @@
 
     p {
         font-family: $text-font;
-        font-size: 0.9em;
-        margin-bottom: 15px;
+        font-size: 1em;
+        margin-bottom: 25px;
     }
 
     #about {
         background-color: $dark-secondary-color;
         padding: 10% 15%;
         color: $white;
+
+        a {
+            color: $white;
+            font-weight: 100;
+            transition: color 0.5s;
+            &:hover {
+                color: $light-primary-color;
+                transition: color 0.5s;
+            }
+        }
+
     }
 
     .content-image {
