@@ -88,8 +88,6 @@ html {
             left: 10%;
             right: 10%;
             bottom: 10px;
-            /*top: 10px;
-            border-top: 1px $dark-primary-color solid;*/
             border-bottom: 1px #E1E2EF solid; }
         #presentation .presentation-center #menu > div a {
           flex: 1;
@@ -111,8 +109,6 @@ html {
               left: 10%;
               right: 10%;
               bottom: 10px;
-              /*top: 10px;
-              border-top: 1px $dark-primary-color solid;*/
               border-bottom: 1px #E1E2EF solid; }
   #presentation .presentation-footer {
     height: 12%;
@@ -151,7 +147,7 @@ html {
       text-decoration: underline;
       transition: color 0.5s; }
       #content #about a:hover {
-        color: #FFFF9D;
+        color: #54D75D;
         transition: color 0.5s; }
   #content .content-image {
     display: flex;
@@ -193,7 +189,7 @@ html {
           color: #00A388;
           transition: color 0.5s; }
           #content #projects .project h3 a:hover {
-            color: #FF6138;
+            color: #54D75D;
             transition: color 0.5s; }
   #content #technologies {
     color: #E1E2EF;
@@ -206,30 +202,29 @@ html {
       font-size: 1.4em;
       margin: 25px 0 10px; }
   #content #experiences {
-    background-color: #FF6138;
-    color: #E1E2EF;
+    background-color: #E1E2EF;
     padding: 10% 15%;
     width: 100%; }
     #content #experiences h3 {
       font-family: "Lato", serif;
       font-weight: 300;
       font-size: 1.4em;
-      margin: 25px 0 10px; }
+      margin-bottom: 10px; }
       #content #experiences h3 a {
-        color: #E1E2EF;
-        text-decoration: underline;
-        font-weight: 300;
+        text-decoration: none;
+        color: #00A388;
         transition: color 0.5s; }
         #content #experiences h3 a:hover {
-          color: #FFFF9D;
+          color: #54D75D;
           transition: color 0.5s; }
     #content #experiences .experience .title {
       font-size: 0.9em;
       display: flex;
       justify-content: space-between; }
     #content #experiences .experience p {
+      max-width: 70%;
       font-weight: 400;
-      font-size: 0.9em; }
+      font-size: 1em; }
   #content footer {
     display: flex;
     flex-direction: column;

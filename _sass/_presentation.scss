@@ -77,8 +77,6 @@
                         left: 10%;
                         right: 10%;
                         bottom: 10px;
-                        /*top: 10px;
-                        border-top: 1px $dark-primary-color solid;*/
                         border-bottom: 1px $white solid;
                     }
                 }
@@ -104,8 +102,6 @@
                             left: 10%;
                             right: 10%;
                             bottom: 10px;
-                            /*top: 10px;
-                            border-top: 1px $dark-primary-color solid;*/
                             border-bottom: 1px $white solid;
                         }
                     }
@@ -130,7 +126,7 @@
                 transition: color 0.5s;
 
                 &:hover {
-                    color: $dark-secondary-color;
+                    color: $dark-color;
                     transition: color 0.5s;
                 }
             }
