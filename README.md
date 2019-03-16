@@ -1,9 +1,8 @@
-# Massively
-> This is Massively, a text-heavy, article-oriented design built around a huge background
-image.
+# http://jfcorsini.github.io
 
-See a preview of the Massively Jekyll Theme here: [https://iwiedenm.github.io/jekyll-theme-massively/](https://iwiedenm.github.io/jekyll-theme-massively/). <br>
-Massively was originally designed by HTML5UP and Jekyll was integrated by [JekyllUp: Jekyll Themes](https://jekyllup.com)
+This is my personal blog page built using [Massively Jekyll Theme](https://iwiedenm.github.io/jekyll-theme-massively/).
+
+README.md from Massively can be seen below: <br>
 
 ## How to Use This Theme
 Jekyll consumes themes in two flavors; gem-based or spread across multiple folders

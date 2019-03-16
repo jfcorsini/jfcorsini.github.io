@@ -34,15 +34,21 @@
 						<p>{{content}}</p>
 					</section>
 
-					<!-- Footer -->
-						<footer>
-              <ul class="actions">
-								<li><a href="{{ "/blog/" | absolute_url }}" class="button">Our Blog</a></li>
-              </ul>
-						</footer>
-					</div>
+					<!-- Footer - Not shown on about page -->
+				{% unless page.url contains '/about/' %} 
+					<footer>
+						<ul class="actions">
+							<li><a href="{{ "/blog/" | absolute_url }}" class="button">{{site.go_to_block}}</a></li>
+						</ul>
+					</footer>
+				{% endunless %}
+				</div>
 
 				<!-- Footer -->
+				{% if page.url contains '/about/' %} 
+        	{% include contact.html %}
+				{% endif %}
+
         {% include foot.html %}
 
 			</div>

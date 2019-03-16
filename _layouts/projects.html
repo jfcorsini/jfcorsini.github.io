@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    {% include head.html %}
+
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+				</header>
+
+
+				<!-- Nav -->
+					<nav id="nav">
+
+            {% include nav.html %}
+						
+					</nav>
+
+				<!-- Main -->
+				<div id="main">
+
+          <article class="post featured">
+            <header class="major">
+              <h2><a href="#">My projects?</a></h2>
+            </header>
+            <a href="#" class="image main"><img src="{{ "/images/octopus.jpg" | absolute_url }}" alt="" /></a>
+						<p>
+              At the same time that I want to group blog posts, I also want to have a place where I can show my own projects, and this is it.
+						</p>
+						<p>
+              Since I'm still setting up this website, I don't have any project to show at the moment. So hopefully soon this will have more updates 🐙
+						</p>
+
+          </article>
+
+					</div>
+
+				<!-- Footer -->
+        {% include foot.html %}
+
+			</div>
+
+			<!-- Scripts -->
+			{% include scripts-main.html %}
+			{% include tracking.html %}
+
+	</body>
+</html>
