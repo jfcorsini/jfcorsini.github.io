@@ -34,12 +34,14 @@
       				<h1>{{page.title}}</h1>
       				<p>{{page.excerpt}}</p>
       			</header>
-            {% if page.unity_dir %}
-              {% include page-unity.html %}
-            {% else %}
-              <div class="image main"><img src="{{page.image}}" alt=""></div>
-            {% endif %}
-      			<p>{{content}}</p>
+						<div class="image main"><img src="{{page.image}}" alt=""></div>
+						<p>{{content}}</p>
+
+						{% if page.unity_dir %}
+							{% include page-unity.html %}
+						{% endif %}
+
+						<p><br>{{page.end_line}}</p>
       		</section>
 
 					<!-- Comments -->
