@@ -4,10 +4,6 @@
   console.log('This is my URL', "{{ site.baseurl}}/assets/unity/{{page.unity_dir}}/Build/builds.json")
   var gameInstance = UnityLoader.instantiate("gameContainer", "{{ site.baseurl}}/assets/unity/{{page.unity_dir}}/Build/builds.json",{onProgress: UnityProgress});  
 </script>
-<div class="webgl-content">
-  <div id="gameContainer" style="
-    margin: auto;
-    width: {{ page.unity_width }}px;
-    height: {{ page.unity_height }}px">
-  </div>
+<div class="webgl-content {{page.unity_dir}}">
+  <div id="gameContainer" style="width: 100%; height: 100%;"></div>
 </div>

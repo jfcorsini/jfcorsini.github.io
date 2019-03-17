@@ -4,8 +4,6 @@ title:  "My first Game with Unity"
 excerpt: "From someone with zero experience with game development, it was very fun to make my first game!"
 end_line: "Hope you had fun!"
 unity_dir: block_breaker
-unity_width: 640
-unity_height: 480
 categories: "Projects"
 tags: 
     - "unity"
