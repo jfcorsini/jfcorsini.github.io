@@ -4,7 +4,7 @@ import { PortfolioWindowContent } from './PortfolioWindowContent'
 
 export const PortfolioWindow = () => {
   return (
-    <Windows titleBar={<PortfolioWindowTitleBar />}>
+    <Windows name="portfolio" titleBar={<PortfolioWindowTitleBar />}>
       <PortfolioWindowContent />
     </Windows>
   )

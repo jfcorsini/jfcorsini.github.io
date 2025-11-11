@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
-import { motion, useDragControls } from 'motion/react';
+import { AnimatePresence, motion, useDragControls } from 'motion/react';
 import styles from './Windows.module.css';
+import type { WindowsContextId } from '../../context/WindowsContext';
+import { useWindows } from '../../context/hooks';
 
 type Props = React.PropsWithChildren<{
+  name: WindowsContextId;
   titleBar?: React.ReactNode;
 }>
 
-export const Windows = ({ children, titleBar }: Props) => {
+export const Windows = ({ children, titleBar, name }: Props) => {
   const dragControls = useDragControls();
   const [isMaximized, setIsMaximized] = useState(false);
 
+  const windows = useWindows()
+  const isOpen = !windows.closed.includes(name) && !windows.minimized.includes(name);
+  const closeWindow = () => windows.closeWindow(name);
+
   return (
-    <motion.div 
+    <AnimatePresence>
+    {isOpen && (<motion.div
+      key={name}
       drag={!isMaximized}
       dragControls={dragControls} 
       dragMomentum={false} 
       dragListener={false} 
       className={styles.container}
+      exit={{ y: 1000, opacity: 0.5 }}
       initial={false}
       animate={{
         x: isMaximized ? 0 : '-50%',
@@ -36,13 +46,14 @@ export const Windows = ({ children, titleBar }: Props) => {
     >
       <div className={styles.titleBar} onPointerDown={(e) => dragControls.start(e)}>
         <div className={styles.buttons}>
-          <div className={styles.close}></div>
-          <div className={styles.hide}></div>
-          <div onClick={() => setIsMaximized(!isMaximized)} className={styles.resize}></div>
+          <div onClick={closeWindow} className={styles.close} />
+          <div onClick={() => windows.minimizeWindow(name)} className={styles.hide} />
+          <div onClick={() => setIsMaximized(!isMaximized)} className={styles.resize} />
         </div>
         {titleBar}
       </div>
       {children}
-    </motion.div>
+    </motion.div>)}
+    </AnimatePresence>
   );
 }
