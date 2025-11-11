@@ -1,13 +1,13 @@
 
 .container {
     background: #ffffff;
-    min-height: 500px;
     padding: 4rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
+    height: inherit;
 }
 
 .content {
