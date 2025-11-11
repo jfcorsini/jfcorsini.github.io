@@ -8,6 +8,7 @@
 }
 
 .titleBar {
+  cursor: grab;
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   background: #f6f6f6;
