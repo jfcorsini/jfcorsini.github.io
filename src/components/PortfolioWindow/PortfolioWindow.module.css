@@ -1,13 +1,12 @@
-
 .container {
-    background: #ffffff;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    height: inherit;
+  background: #ffffff;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  height: inherit;
 }
 
 .content {
@@ -17,19 +16,19 @@
 }
 
 .name {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-    letter-spacing: -1px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
 }
 
 .tagline {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    font-weight: 400;
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .socialLinks {
@@ -68,19 +67,19 @@
 }
 
 .addressBar {
-    flex: 1;
-    background: #ffffff;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    padding: 0.4rem 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
+  flex: 1;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
 
-    span {
-      color: #333;
-    }
+  span {
+    color: #333;
+  }
 }
 
 .toast {

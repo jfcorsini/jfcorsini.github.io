@@ -1,7 +1,7 @@
-import { useMemo } from "react";
 import { motion } from "motion/react";
+import { useMemo } from "react";
 
-import './Desktop.css'
+import "./Desktop.css";
 
 const TOTAL_PARTICLES = 40;
 
@@ -10,7 +10,6 @@ const easeOptions = ["easeIn", "easeOut", "linear"] as const;
 export const Particles = () => {
   const particles = useMemo(() => {
     return Array.from({ length: TOTAL_PARTICLES }).map((_, index) => {
-      
       return {
         id: `particle-${index}`,
         position: Math.random() * 100,
@@ -36,13 +35,13 @@ export const Particles = () => {
             height: particle.size,
             left: `${particle.position}%`,
           }}
-          initial={{ 
-            top: '105%', 
+          initial={{
+            top: "105%",
             opacity: particle.initialOpacity,
             x: 0,
           }}
-          animate={{ 
-            top: '-20%', 
+          animate={{
+            top: "-20%",
             opacity: particle.finalOpacity,
             x: particle.drift,
           }}

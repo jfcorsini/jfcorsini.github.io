@@ -1,6 +1,6 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
-export type WindowsContextId = 'portfolio'
+export type WindowsContextId = "portfolio";
 
 interface WindowsContextType {
   closed: string[];
@@ -11,4 +11,6 @@ interface WindowsContextType {
   restoreWindow: (id: WindowsContextId) => void;
 }
 
-export const WindowsContext = createContext<WindowsContextType | undefined>(undefined);
+export const WindowsContext = createContext<WindowsContextType | undefined>(
+  undefined,
+);

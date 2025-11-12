@@ -1,5 +1,5 @@
 import React from "react";
-import './Desktop.css';
+import "./Desktop.css";
 import { Particles } from "./Particles";
 
 export const Desktop = ({ children }: React.PropsWithChildren) => {
@@ -8,5 +8,5 @@ export const Desktop = ({ children }: React.PropsWithChildren) => {
       <Particles />
       {children}
     </div>
-  )
-}
+  );
+};
