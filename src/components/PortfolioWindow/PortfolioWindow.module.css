@@ -16,7 +16,7 @@
 }
 
 .name {
-  font-size: 3.5rem;
+  font-size: clamp(1.5rem, 10vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
   color: #1a1a1a;
@@ -24,7 +24,7 @@
 }
 
 .tagline {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 4vw, 1.25rem);
   color: #666;
   margin-bottom: 3rem;
   line-height: 1.6;
@@ -63,6 +63,16 @@
       width: 20px;
       height: 20px;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .socialLinks a {
+    padding: 0.75rem;
+  }
+
+  .socialLinks span {
+    display: none;
   }
 }
 
