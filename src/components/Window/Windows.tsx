@@ -11,38 +11,33 @@ type Props = React.PropsWithChildren<{
 
 export const Windows = ({ children, titleBar, name }: Props) => {
   const dragControls = useDragControls();
-  const [isScaled, setIsScaled] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(false);
 
   const windows = useWindows();
   const isOpen =
     !windows.closed.includes(name) && !windows.minimized.includes(name);
   const closeWindow = () => windows.closeWindow(name);
 
-  // Check if screen is small
-  const isSmallScreen =
-    typeof window !== "undefined" && window.innerWidth < 960;
-  const isMaxScreen = isSmallScreen || isScaled;
-
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
           key={name}
-          drag={!isMaxScreen}
+          drag={!isMaximized}
           dragControls={dragControls}
           dragMomentum={false}
           dragListener={false}
-          className={styles.container}
+          className={`${styles.container} ${isMaximized ? styles.maximized : ""}`}
           exit={{ y: 1000, opacity: 0.5 }}
           initial={false}
           animate={{
-            x: isMaxScreen ? 0 : "-50%",
-            y: isMaxScreen ? 0 : "-50%",
-            left: isMaxScreen ? 0 : "50%",
-            top: isMaxScreen ? 0 : "50%",
-            width: isMaxScreen ? "100vw" : "900px",
-            height: isMaxScreen ? "100vh" : "600px",
-            borderRadius: isMaxScreen ? 0 : "var(--border-radius)",
+            x: isMaximized ? 0 : "-50%",
+            y: isMaximized ? 0 : "-50%",
+            left: isMaximized ? 0 : "50%",
+            top: isMaximized ? 0 : "50%",
+            width: isMaximized ? "100vw" : "900px",
+            height: isMaximized ? "100vh" : "600px",
+            borderRadius: isMaximized ? 0 : "var(--border-radius)",
           }}
           transition={{
             type: "spring",
@@ -62,7 +57,7 @@ export const Windows = ({ children, titleBar, name }: Props) => {
                 className={styles.hide}
               />
               <div
-                onClick={() => setIsScaled(!isScaled)}
+                onClick={() => setIsMaximized(!isMaximized)}
                 className={styles.resize}
               />
             </div>
