@@ -51,6 +51,7 @@
     transition: all 0.2s ease;
     font-weight: 500;
     background: #ffffff;
+    cursor: pointer;
 
     &:hover {
       background: #f9f9f9;
@@ -80,4 +81,18 @@
     span {
       color: #333;
     }
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
 }

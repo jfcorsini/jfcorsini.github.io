@@ -1,6 +1,20 @@
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import styles from './PortfolioWindow.module.css'
 
 export const PortfolioWindowContent = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('jf.corsini@gmail.com');
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <article className={styles.content}>
@@ -21,14 +35,27 @@ export const PortfolioWindowContent = () => {
               </svg>
               LinkedIn
           </a>
-          <a href="mailto:jf.corsini@gmail.com" >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <a onClick={copyEmail}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
               Email
           </a>
         </nav>
+        <AnimatePresence>
+          {showToast && (
+            <motion.div 
+              className={styles.toast}
+              initial={{ opacity: 0, y: 20, x: '-50%' }}
+              animate={{ opacity: 1, y: 0, x: '-50%' }}
+              exit={{ opacity: 0, y: 20, x: '-50%' }}
+              transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            >
+              Email copied to clipboard!
+            </motion.div>
+          )}
+        </AnimatePresence>
       </article>
     </div>
   );
