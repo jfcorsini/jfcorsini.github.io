@@ -4,9 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-  height: inherit;
+  flex: 1;
 }
 
 .content {
