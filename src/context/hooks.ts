@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { WindowsContext } from "./WindowsContext";
+import { AppsContext } from "./AppsContext";
 
-export const useWindows = () => {
-  const context = useContext(WindowsContext);
+export const useApps = () => {
+  const context = useContext(AppsContext);
   if (!context) {
-    throw new Error("useWindows must be used within WindowsProvider");
+    throw new Error("useApps must be used within AppsProvider");
   }
   return context;
 };

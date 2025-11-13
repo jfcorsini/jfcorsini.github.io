@@ -1,16 +1,16 @@
 import { useState, type PropsWithChildren } from "react";
-import { WindowsContext } from "./WindowsContext";
+import { AppsContext } from "./AppsContext";
 
-export const WindowsProvider = ({ children }: PropsWithChildren) => {
+export const AppsProvider = ({ children }: PropsWithChildren) => {
   const [closed, setClosed] = useState<string[]>([]);
   const [minimized, setMinimized] = useState<string[]>([]);
 
-  const closeWindow = (id: string) => {
+  const close = (id: string) => {
     setClosed((prev) => [...prev, id]);
     setMinimized((prev) => prev.filter((w) => w !== id));
   };
 
-  const openWindow = (id: string) => {
+  const open = (id: string) => {
     if (closed.find((i) => i === id)) {
       setClosed((prev) => prev.filter((w) => w !== id));
     }
@@ -19,21 +19,21 @@ export const WindowsProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const minimizeWindow = (id: string) => {
+  const minimize = (id: string) => {
     setMinimized((prev) => [...prev, id]);
   };
 
   return (
-    <WindowsContext
+    <AppsContext
       value={{
         closed,
         minimized,
-        closeWindow,
-        openWindow,
-        minimizeWindow,
+        close,
+        open,
+        minimize,
       }}
     >
       {children}
-    </WindowsContext>
+    </AppsContext>
   );
 };

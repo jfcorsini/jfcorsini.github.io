@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useWindows } from "../../context/hooks";
+import { useApps } from "../../context/hooks";
 import type { AppName } from "../../lib/appName";
 import { icons } from "../../lib/icons";
 import styles from "./Desktop.module.css";
@@ -17,13 +17,13 @@ const NAME_MAP: Record<AppName, string> = {
 };
 
 export const DesktopIcon = ({ appName }: Props) => {
-  const { openWindow } = useWindows();
+  const apps = useApps();
   return (
     <motion.div
       className={styles.icon}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() => openWindow(appName)}
+      onClick={() => apps.open(appName)}
     >
       {ICON_MAP[appName]}
       <span>{NAME_MAP[appName]}</span>
