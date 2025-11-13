@@ -16,7 +16,10 @@ export const Windows = ({ children, titleBar, name }: Props) => {
   const windows = useWindows();
   const isOpen =
     !windows.closed.includes(name) && !windows.minimized.includes(name);
-  const closeWindow = () => windows.closeWindow(name);
+  const closeWindow = () => {
+    setIsMaximized(false);
+    windows.closeWindow(name);
+  };
 
   return (
     <AnimatePresence>
@@ -29,7 +32,16 @@ export const Windows = ({ children, titleBar, name }: Props) => {
           dragListener={false}
           className={`${styles.container} ${isMaximized ? styles.maximized : ""}`}
           exit={{ y: 1000, opacity: 0.5 }}
-          initial={false}
+          initial={{
+            x: "-50%",
+            y: "110%",
+            left: "50%",
+            top: "110%",
+            width: isMaximized ? "100vw" : "900px",
+            height: isMaximized ? "100vh" : "600px",
+            borderRadius: isMaximized ? 0 : "var(--border-radius)",
+            "--cursor": "grab",
+          }}
           animate={{
             x: isMaximized ? 0 : "-50%",
             y: isMaximized ? 0 : "-50%",
@@ -38,16 +50,21 @@ export const Windows = ({ children, titleBar, name }: Props) => {
             width: isMaximized ? "100vw" : "900px",
             height: isMaximized ? "100vh" : "600px",
             borderRadius: isMaximized ? 0 : "var(--border-radius)",
+            "--cursor": "grab",
+          }}
+          whileDrag={{
+            "--cursor": "grabbing",
           }}
           transition={{
-            type: "spring",
-            damping: 50,
-            stiffness: 600,
-            mass: 2,
+            type: "tween",
           }}
         >
-          <div
+          <motion.div
             className={styles.titleBar}
+            style={{
+              // whileTap didn't work, so this is a workaround
+              cursor: "var(--cursor)",
+            }}
             onPointerDown={(e) => dragControls.start(e)}
           >
             <div className={styles.buttons}>
@@ -62,7 +79,7 @@ export const Windows = ({ children, titleBar, name }: Props) => {
               />
             </div>
             {titleBar}
-          </div>
+          </motion.div>
           {children}
         </motion.div>
       )}
