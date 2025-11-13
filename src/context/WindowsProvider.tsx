@@ -11,15 +11,16 @@ export const WindowsProvider = ({ children }: PropsWithChildren) => {
   };
 
   const openWindow = (id: string) => {
-    setClosed((prev) => prev.filter((w) => w !== id));
+    if (closed.find((i) => i === id)) {
+      setClosed((prev) => prev.filter((w) => w !== id));
+    }
+    if (minimized.find((i) => i === id)) {
+      setMinimized((prev) => prev.filter((w) => w !== id));
+    }
   };
 
   const minimizeWindow = (id: string) => {
     setMinimized((prev) => [...prev, id]);
-  };
-
-  const restoreWindow = (id: string) => {
-    setMinimized((prev) => prev.filter((w) => w !== id));
   };
 
   return (
@@ -30,7 +31,6 @@ export const WindowsProvider = ({ children }: PropsWithChildren) => {
         closeWindow,
         openWindow,
         minimizeWindow,
-        restoreWindow,
       }}
     >
       {children}

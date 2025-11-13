@@ -1,11 +1,11 @@
 import { AnimatePresence, motion, useDragControls } from "motion/react";
 import React, { useState } from "react";
-import type { WindowsContextId } from "../../context/WindowsContext";
 import { useWindows } from "../../context/hooks";
+import type { AppName } from "../../lib/appName";
 import styles from "./Windows.module.css";
 
 type Props = React.PropsWithChildren<{
-  name: WindowsContextId;
+  name: AppName;
   titleBar?: React.ReactNode;
 }>;
 

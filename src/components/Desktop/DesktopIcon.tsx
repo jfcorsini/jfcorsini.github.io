@@ -1,0 +1,32 @@
+import { motion } from "motion/react";
+import { useWindows } from "../../context/hooks";
+import type { AppName } from "../../lib/appName";
+import { icons } from "../../lib/icons";
+import styles from "./Desktop.module.css";
+
+type Props = {
+  appName: AppName;
+};
+
+const ICON_MAP: Record<AppName, React.ReactNode> = {
+  portfolio: <icons.Globe />,
+};
+
+const NAME_MAP: Record<AppName, string> = {
+  portfolio: "About",
+};
+
+export const DesktopIcon = ({ appName }: Props) => {
+  const { openWindow } = useWindows();
+  return (
+    <motion.div
+      className={styles.icon}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => openWindow(appName)}
+    >
+      {ICON_MAP[appName]}
+      <span>{NAME_MAP[appName]}</span>
+    </motion.div>
+  );
+};
