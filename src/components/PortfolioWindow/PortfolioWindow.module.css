@@ -89,6 +89,7 @@
 
   span {
     color: #333;
+    user-select: none;
   }
 }
 
