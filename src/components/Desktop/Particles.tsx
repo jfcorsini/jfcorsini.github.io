@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { useMemo } from "react";
-
-import "./Desktop.css";
+import styles from "./Desktop.module.css";
 
 const TOTAL_PARTICLES = 40;
 
@@ -25,11 +24,11 @@ export const Particles = () => {
   }, []);
 
   return (
-    <div className="particles-container">
+    <div className={styles.particlesContainer}>
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="particle"
+          className={styles.particle}
           style={{
             width: particle.size,
             height: particle.size,

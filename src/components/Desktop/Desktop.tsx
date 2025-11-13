@@ -1,10 +1,10 @@
 import React from "react";
-import "./Desktop.css";
+import styles from "./Desktop.module.css";
 import { Particles } from "./Particles";
 
 export const Desktop = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <Particles />
       {children}
     </div>
