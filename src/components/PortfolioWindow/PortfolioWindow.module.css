@@ -74,23 +74,6 @@
   }
 }
 
-.addressBar {
-  flex: 1;
-  background: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  padding: 0.4rem 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-
-  span {
-    color: #333;
-    user-select: none;
-  }
-}
-
 .toast {
   position: fixed;
   bottom: 2rem;

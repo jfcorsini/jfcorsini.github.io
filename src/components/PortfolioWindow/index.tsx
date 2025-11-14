@@ -1,12 +1,12 @@
 import { Windows } from "../Window";
+import { WindowUrlTitleBar } from "../Window/WindowsUrlTitleBar";
 import { PortfolioWindowContent } from "./PortfolioWindowContent";
-import { PortfolioWindowTitleBar } from "./PortfolioWindowTitleBar";
 
 export const PortfolioWindow = () => {
   return (
     <Windows name="portfolio">
       <Windows.TitleBar>
-        <PortfolioWindowTitleBar />
+        <WindowUrlTitleBar url="jfcorsini.com" iconName="LockClosed" />
       </Windows.TitleBar>
       <Windows.Content>
         <PortfolioWindowContent />

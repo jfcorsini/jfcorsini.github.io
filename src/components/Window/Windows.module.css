@@ -6,6 +6,7 @@
   overflow: hidden;
   max-width: calc(100vw - 1rem);
   max-height: calc(100vh - 1rem);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .maximized {
@@ -59,5 +60,22 @@
     &.resize {
       background-color: #28c840;
     }
+  }
+}
+
+.addressBar {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+
+  span {
+    color: #333;
+    user-select: none;
   }
 }
