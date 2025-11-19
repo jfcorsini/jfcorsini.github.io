@@ -21,7 +21,7 @@ export const ProjectsWindow: React.FC = () => {
   const [tab, setTab] = useState<Tab>("dress4weather");
 
   return (
-    <Windows name="projects">
+    <Windows name="projects" width="1200px" height="720px">
       <Windows.TitleBar>
         <WindowUrlTitleBar
           openUrlOnClick

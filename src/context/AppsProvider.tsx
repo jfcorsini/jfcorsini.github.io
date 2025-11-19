@@ -3,7 +3,7 @@ import type { AppName } from "../lib/appName";
 import { AppsContext } from "./AppsContext";
 
 export const AppsProvider = ({ children }: PropsWithChildren) => {
-  const [closed, setClosed] = useState<AppName[]>(["projects"]);
+  const [closed, setClosed] = useState<AppName[]>(["projects", "snake"]);
   const [minimized, setMinimized] = useState<AppName[]>([]);
 
   const close = (id: AppName) => {

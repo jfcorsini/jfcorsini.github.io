@@ -7,9 +7,16 @@ import { WindowsInternalContext } from "./WindowsContext";
 
 type WindowsRootProps = React.PropsWithChildren<{
   name: AppName;
+  width?: string;
+  height?: string;
 }>;
 
-export const WindowsRoot = ({ children, name }: WindowsRootProps) => {
+export const WindowsRoot = ({
+  children,
+  name,
+  width,
+  height,
+}: WindowsRootProps) => {
   const dragControls = useDragControls();
   const [isMaximized, setIsMaximized] = useState(false);
 
@@ -46,8 +53,8 @@ export const WindowsRoot = ({ children, name }: WindowsRootProps) => {
               y: "110%",
               left: "50%",
               top: "110%",
-              width: isMaximized ? "100vw" : "900px",
-              height: isMaximized ? "100vh" : "600px",
+              width: isMaximized ? "100vw" : width,
+              height: isMaximized ? "100vh" : height,
               borderRadius: isMaximized ? 0 : "var(--border-radius)",
               "--cursor": "grab",
             }}
@@ -56,8 +63,8 @@ export const WindowsRoot = ({ children, name }: WindowsRootProps) => {
               y: isMaximized ? 0 : "-50%",
               left: isMaximized ? 0 : "50%",
               top: isMaximized ? 0 : "50%",
-              width: isMaximized ? "100vw" : "900px",
-              height: isMaximized ? "100vh" : "600px",
+              width: isMaximized ? "100vw" : width,
+              height: isMaximized ? "100vh" : height,
               borderRadius: isMaximized ? 0 : "var(--border-radius)",
               "--cursor": "grab",
             }}
