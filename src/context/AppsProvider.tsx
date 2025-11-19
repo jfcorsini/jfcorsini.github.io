@@ -1,16 +1,17 @@
 import { useState, type PropsWithChildren } from "react";
+import type { AppName } from "../lib/appName";
 import { AppsContext } from "./AppsContext";
 
 export const AppsProvider = ({ children }: PropsWithChildren) => {
-  const [closed, setClosed] = useState<string[]>([]);
-  const [minimized, setMinimized] = useState<string[]>([]);
+  const [closed, setClosed] = useState<AppName[]>(["projects"]);
+  const [minimized, setMinimized] = useState<AppName[]>([]);
 
-  const close = (id: string) => {
+  const close = (id: AppName) => {
     setClosed((prev) => [...prev, id]);
     setMinimized((prev) => prev.filter((w) => w !== id));
   };
 
-  const open = (id: string) => {
+  const open = (id: AppName) => {
     if (closed.find((i) => i === id)) {
       setClosed((prev) => prev.filter((w) => w !== id));
     }
@@ -19,7 +20,7 @@ export const AppsProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const minimize = (id: string) => {
+  const minimize = (id: AppName) => {
     setMinimized((prev) => [...prev, id]);
   };
 

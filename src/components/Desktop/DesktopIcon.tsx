@@ -10,10 +10,12 @@ type Props = {
 
 const ICON_MAP: Record<AppName, React.ReactNode> = {
   portfolio: <icons.Globe />,
+  projects: <icons.Folder />,
 };
 
 const NAME_MAP: Record<AppName, string> = {
   portfolio: "About",
+  projects: "Projects",
 };
 
 export const DesktopIcon = ({ appName }: Props) => {
