@@ -25,7 +25,7 @@ const SnakeGame = () => {
       <GameOverlay />
       <GameGrid />
       <div className={styles.instructions}>
-        Use arrow keys or swipe to move the snake. points!
+        Use arrow keys or swipe to move the snake. Eat food to earn points!
       </div>
     </div>
   );
