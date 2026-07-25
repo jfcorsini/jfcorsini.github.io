@@ -1,6 +1,12 @@
 :root {
-  font-family:
-    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Chrome (menu bar, dock, title bars) uses the real system face — an OS
+     shouldn't ship its own font for its own furniture. Content inside windows
+     is where the site gets a voice. */
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Instrument Sans", var(--font-ui);
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+
+  font-family: var(--font-text);
   line-height: 1.5;
   font-weight: 400;
 
@@ -22,10 +28,12 @@
   --text-muted: rgba(238, 241, 246, 0.62);
   --text-faint: rgba(238, 241, 246, 0.36);
 
-  /* Accent — inherited from the Snake game so the system feels of a piece. */
-  --accent: #4ade80;
-  --accent-dim: #22c55e;
-  --accent-glow: rgba(74, 222, 128, 0.35);
+  /* Accent is deliberately colourless: status dots and active markers read as
+     bright text, not as branding. The one saturated colour on the site lives
+     inside Snake, where a green means something. */
+  --accent: #dfe3ea;
+  --accent-dim: rgba(223, 227, 234, 0.55);
+  --accent-glow: transparent;
 
   --border-radius: 14px;
   --radius-sm: 8px;
@@ -60,7 +68,7 @@ body {
 }
 
 ::selection {
-  background: var(--accent-glow);
+  background: rgba(223, 227, 234, 0.22);
   color: #fff;
 }
 

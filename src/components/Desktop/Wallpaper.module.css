@@ -6,7 +6,7 @@
   background:
     radial-gradient(
       120% 80% at 50% 110%,
-      rgba(16, 44, 34, 0.55) 0%,
+      rgba(26, 30, 40, 0.55) 0%,
       transparent 60%
     ),
     linear-gradient(175deg, #0a0c12 0%, #07080b 45%, #05060a 100%);
@@ -27,7 +27,7 @@
   height: 62vw;
   background: radial-gradient(
     circle,
-    rgba(45, 212, 191, 0.3) 0%,
+    rgba(148, 163, 184, 0.16) 0%,
     transparent 68%
   );
   animation: drift-one 34s ease-in-out infinite;
@@ -40,7 +40,7 @@
   height: 68vw;
   background: radial-gradient(
     circle,
-    rgba(74, 222, 128, 0.22) 0%,
+    rgba(148, 163, 184, 0.14) 0%,
     transparent 68%
   );
   animation: drift-two 44s ease-in-out infinite;
@@ -53,7 +53,7 @@
   height: 40vw;
   background: radial-gradient(
     circle,
-    rgba(99, 102, 241, 0.18) 0%,
+    rgba(148, 163, 184, 0.10) 0%,
     transparent 70%
   );
   animation: drift-three 52s ease-in-out infinite;
@@ -132,7 +132,7 @@
 
 .particle {
   position: absolute;
-  background: rgba(190, 255, 220, 0.7);
+  background: rgba(226, 232, 240, 0.7);
   border-radius: 50%;
   will-change: transform, opacity;
   pointer-events: none;

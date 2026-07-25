@@ -9,7 +9,7 @@
   background:
     radial-gradient(
       90% 70% at 50% 0%,
-      rgba(74, 222, 128, 0.09) 0%,
+      rgba(255, 255, 255, 0.09) 0%,
       transparent 70%
     ),
     #0b0d12;
@@ -28,8 +28,8 @@
   margin: 0 0 1.25rem;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(74, 222, 128, 0.28);
-  background: rgba(74, 222, 128, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.09);
   color: var(--accent);
   font-size: 0.72rem;
   font-weight: 500;
@@ -45,11 +45,12 @@
 }
 
 .name {
-  font-size: clamp(2rem, 7vw, 3.6rem);
-  font-weight: 680;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 7.5vw, 4rem);
+  font-weight: 400;
   margin: 0 0 0.85rem;
   color: var(--text);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
   line-height: 1.05;
 }
 
@@ -92,11 +93,11 @@
       box-shadow 0.18s ease;
 
     &:hover {
-      background: rgba(74, 222, 128, 0.1);
-      border-color: rgba(74, 222, 128, 0.42);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.42);
       color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px -6px rgba(74, 222, 128, 0.4);
+      box-shadow: 0 8px 22px -6px rgba(255, 255, 255, 0.4);
     }
 
     svg {
@@ -117,7 +118,7 @@
   bottom: 1.75rem;
   left: 50%;
   background: var(--glass-strong);
-  border: 1px solid rgba(74, 222, 128, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: var(--text);
   padding: 0.6rem 1.1rem;
   border-radius: 10px;

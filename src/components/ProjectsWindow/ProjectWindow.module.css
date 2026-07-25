@@ -43,13 +43,13 @@
 }
 
 .tabSelected {
-  background: rgba(74, 222, 128, 0.13);
-  border-color: rgba(74, 222, 128, 0.3);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.3);
   color: var(--accent);
   font-weight: 500;
 
   &:hover {
-    background: rgba(74, 222, 128, 0.18);
+    background: rgba(255, 255, 255, 0.18);
     color: var(--accent);
   }
 }
