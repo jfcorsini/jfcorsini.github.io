@@ -16,6 +16,22 @@ export const dateFormat = new Intl.DateTimeFormat("en-GB", {
   month: "short",
 });
 
+/** "YYYY-MM-DD" for the given instant, as the day reads in Helsinki. */
+const isoFormat = new Intl.DateTimeFormat("en-CA", {
+  timeZone: TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+export const helsinkiIsoDate = (date: Date) => isoFormat.format(date);
+
+/**
+ * A Date that formats back to `iso` in Helsinki. Noon UTC keeps it on the
+ * right side of midnight whatever the offset.
+ */
+export const dateFromIso = (iso: string) => new Date(`${iso}T12:00:00Z`);
+
 export const useHelsinkiNow = () => {
   const [now, setNow] = useState(() => new Date());
 

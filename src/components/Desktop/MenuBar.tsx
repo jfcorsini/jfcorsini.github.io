@@ -1,16 +1,13 @@
-import { useApps } from "../../context/hooks";
+import { useApps, useSystemDate } from "../../context/hooks";
 import { APP_META } from "../../lib/apps";
-import {
-  dateFormat,
-  timeFormat,
-  useHelsinkiNow,
-} from "../../lib/useHelsinkiNow";
+import { timeFormat } from "../../lib/useHelsinkiNow";
+import { DateControl } from "../DateControl/DateControl";
 import styles from "./MenuBar.module.css";
 import { ThemeMenu } from "./ThemeMenu";
 
 export const MenuBar = () => {
   const { focused } = useApps();
-  const now = useHelsinkiNow();
+  const { now } = useSystemDate();
 
   return (
     <div className={styles.menuBar}>
@@ -38,7 +35,9 @@ export const MenuBar = () => {
           LinkedIn
         </a>
         <ThemeMenu />
-        <span className={styles.date}>{dateFormat.format(now)}</span>
+        <span className={styles.date}>
+          <DateControl />
+        </span>
         <span className={styles.clock}>{timeFormat.format(now)}</span>
       </div>
     </div>

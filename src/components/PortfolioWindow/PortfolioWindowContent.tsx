@@ -1,9 +1,13 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { useSystemDate } from "../../context/hooks";
+import { experienceOn } from "../../lib/experience";
 import styles from "./PortfolioWindow.module.css";
 
 export const PortfolioWindowContent = () => {
   const [showToast, setShowToast] = useState(false);
+  const { today } = useSystemDate();
+  const hasStarted = experienceOn(today).value !== null;
 
   const copyEmail = async () => {
     try {
@@ -24,9 +28,19 @@ export const PortfolioWindowContent = () => {
             Helsinki, Finland
           </p>
           <h1 className={styles.name}>João F. Corsini</h1>
+          {/* Wind the date back far enough and there is no career to describe. */}
           <p className={styles.tagline}>
-            <strong>Full stack engineer</strong> with nine years spent building
-            web applications end to end.
+            {hasStarted ? (
+              <>
+                <strong>Software Engineer</strong> focused in building web
+                applications end to end.
+              </>
+            ) : (
+              <>
+                <strong>Not an engineer yet.</strong> The first job starts in
+                March 2016 — come back then.
+              </>
+            )}
           </p>
         </header>
         <nav className={styles.socialLinks} aria-label="Social media links">

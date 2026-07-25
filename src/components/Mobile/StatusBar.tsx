@@ -1,9 +1,10 @@
-import { timeFormat, useHelsinkiNow } from "../../lib/useHelsinkiNow";
+import { useSystemDate } from "../../context/hooks";
+import { timeFormat } from "../../lib/useHelsinkiNow";
 import styles from "./MobileShell.module.css";
 
 /** Phone status bar: the clock is real, the signal bars are set dressing. */
 export const StatusBar = () => {
-  const now = useHelsinkiNow();
+  const { now } = useSystemDate();
 
   return (
     <div className={styles.statusBar}>

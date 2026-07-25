@@ -1,0 +1,70 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  border-radius: 999px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Time travelling is a state the site is in, so the chip stops being chrome. */
+.root[data-active] {
+  background: rgba(var(--tint-rgb), 0.1);
+  box-shadow: inset 0 0 0 1px rgba(var(--tint-rgb), 0.14);
+  color: var(--text);
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.5rem;
+  border: 0;
+  border-radius: inherit;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.trigger:hover {
+  color: var(--accent);
+}
+
+.marker {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* The year is noise on a normal day and the whole point on an abnormal one. */
+.year {
+  display: none;
+  color: var(--text-muted);
+}
+
+.root[data-active] .year {
+  display: inline;
+}
+
+.reset {
+  border: 0;
+  background: none;
+  padding: 0 0.45rem 0 0;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.reset:hover {
+  color: var(--text);
+}

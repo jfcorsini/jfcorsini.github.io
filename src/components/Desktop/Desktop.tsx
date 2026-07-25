@@ -1,5 +1,6 @@
 import React from "react";
 import { APP_NAMES } from "../../lib/appName";
+import { DateEntryCard } from "../DateEntry/DateEntryCard";
 import styles from "./Desktop.module.css";
 import { DesktopIcon } from "./DesktopIcon";
 import { Dock } from "./Dock";
@@ -20,6 +21,7 @@ export const Desktop = ({ children }: React.PropsWithChildren) => {
       </div>
 
       <div className={styles.widgets}>
+        <DateEntryCard />
         <InfoCard />
         <StickyNote />
       </div>

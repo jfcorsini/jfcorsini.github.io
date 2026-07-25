@@ -1,0 +1,54 @@
+/* Black, and black regardless of theme — this is an absence, not a colour scheme. */
+.void {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  background: #000;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.date {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.line {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.back {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: none;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}

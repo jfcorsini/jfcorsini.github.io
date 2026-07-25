@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import { APP_NAMES, type AppName } from "../../lib/appName";
 import { APP_META } from "../../lib/apps";
 import { icons } from "../../lib/icons";
-import { dateFormat, useHelsinkiNow } from "../../lib/useHelsinkiNow";
+import { DateControl } from "../DateControl/DateControl";
+import { DateEntryCard } from "../DateEntry/DateEntryCard";
 import styles from "./MobileShell.module.css";
 
 type Props = {
@@ -29,18 +30,20 @@ const LINKS = [
 ];
 
 export const HomeScreen = ({ onOpen }: Props) => {
-  const now = useHelsinkiNow();
-
   return (
     <div className={styles.home}>
       <motion.header className={styles.hero} {...enter(0)}>
-        <p className={styles.heroDate}>{dateFormat.format(now)}</p>
+        <p className={styles.heroDate}>
+          <DateControl align="left" />
+        </p>
         <h1 className={styles.heroName}>João F. Corsini</h1>
         <p className={styles.heroRole}>
           <span className={styles.pulse} />
-          Full stack engineer · Helsinki
+          Software engineer · Helsinki
         </p>
       </motion.header>
+
+      <DateEntryCard />
 
       <div className={styles.grid}>
         {APP_NAMES.map((appName, index) => {
