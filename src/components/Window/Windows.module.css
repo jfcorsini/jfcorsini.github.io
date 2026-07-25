@@ -1,52 +1,85 @@
 .container {
   position: fixed;
-  z-index: 3;
-  background-color: rgba(255, 255, 255, 0.95);
+  /* Resting placement lives in CSS so Motion's transform is free for dragging. */
+  left: calc(50% + var(--cascade));
+  top: calc(50% + var(--cascade));
+  translate: -50% -50%;
+  border-radius: var(--border-radius);
+  background: var(--glass-strong);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   max-width: calc(100vw - 1rem);
-  max-height: calc(100vh - 1rem);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-height: calc(100vh - var(--menubar-height) - var(--dock-height));
+  box-shadow: var(--shadow-window);
+  transition:
+    filter 0.2s ease,
+    left 0.28s ease,
+    top 0.28s ease,
+    width 0.28s ease,
+    height 0.28s ease,
+    translate 0.28s ease,
+    border-radius 0.28s ease;
+}
+
+/* Unfocused windows recede instead of competing for attention. */
+.unfocused {
+  filter: brightness(0.82) saturate(0.85);
 }
 
 .maximized {
+  left: 0;
+  top: var(--menubar-height);
+  translate: 0 0;
+  width: 100vw;
+  height: calc(100vh - var(--menubar-height) - var(--dock-height));
   max-width: none;
   max-height: none;
+  border-width: 0;
+  border-radius: 0;
 }
 
 .content {
   display: flex;
   flex: 1;
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
+  min-height: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  overflow: hidden;
 }
 
 .titleBar {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  background: #f6f6f6;
-  color: #333;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text);
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.9rem;
+  font-size: 0.82rem;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
 
   div {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+    transition: filter 0.15s ease;
 
     &:hover {
-      opacity: 0.6;
+      filter: brightness(1.25);
     }
 
     &:active {
@@ -57,7 +90,7 @@
       background-color: #ff5f57;
     }
     &.hide {
-      background-color: #ffbd2e;
+      background-color: #febc2e;
     }
     &.resize {
       background-color: #28c840;
@@ -65,20 +98,34 @@
   }
 }
 
+/* Traffic lights grey out when the window is not frontmost. */
+.unfocused .buttons div {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
 .addressBar {
   flex: 1;
-  background: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  padding: 0.4rem 0.75rem;
+  min-width: 0;
+  background: rgba(0, 0, 0, 0.32);
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.32rem 0.7rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  gap: 0.45rem;
+  font-size: 0.78rem;
 
   a {
-    color: #333;
+    color: var(--text-muted);
     user-select: none;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: var(--text);
+    }
   }
 }

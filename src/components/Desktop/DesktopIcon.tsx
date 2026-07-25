@@ -1,36 +1,35 @@
 import { motion } from "motion/react";
 import { useApps } from "../../context/hooks";
 import type { AppName } from "../../lib/appName";
+import { APP_META } from "../../lib/apps";
 import { icons } from "../../lib/icons";
 import styles from "./Desktop.module.css";
 
 type Props = {
   appName: AppName;
+  index: number;
 };
 
-const ICON_MAP: Record<AppName, React.ReactNode> = {
-  portfolio: <icons.Globe />,
-  projects: <icons.Folder />,
-  snake: <icons.Snake />,
-};
-
-const NAME_MAP: Record<AppName, string> = {
-  portfolio: "About",
-  projects: "Projects",
-  snake: "Game",
-};
-
-export const DesktopIcon = ({ appName }: Props) => {
+export const DesktopIcon = ({ appName, index }: Props) => {
   const apps = useApps();
+  const { label, iconName } = APP_META[appName];
+  const Icon = icons[iconName];
+  const isRunning = !apps.closed.includes(appName);
+
   return (
     <motion.div
-      className={styles.icon}
-      whileHover={{ scale: 1.05 }}
+      className={`${styles.icon} ${isRunning ? styles.iconActive : ""}`}
+      initial={{ opacity: 0, x: -16 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.15 + index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => apps.open(appName)}
     >
-      {ICON_MAP[appName]}
-      <span>{NAME_MAP[appName]}</span>
+      <span className={styles.iconGlyph}>
+        <Icon />
+      </span>
+      <span>{label}</span>
     </motion.div>
   );
 };

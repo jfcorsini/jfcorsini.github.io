@@ -2,18 +2,31 @@ import React from "react";
 import { APP_NAMES } from "../../lib/appName";
 import styles from "./Desktop.module.css";
 import { DesktopIcon } from "./DesktopIcon";
-import { Particles } from "./Particles";
+import { Dock } from "./Dock";
+import { MenuBar } from "./MenuBar";
+import { Wallpaper } from "./Wallpaper";
+import { InfoCard, StickyNote } from "./Widgets";
 
 export const Desktop = ({ children }: React.PropsWithChildren) => {
   return (
     <div className={styles.container}>
-      <Particles />
+      <Wallpaper />
+      <MenuBar />
+
       <div className={styles.iconsContainer}>
-        {APP_NAMES.map((appName) => (
-          <DesktopIcon key={appName} appName={appName} />
+        {APP_NAMES.map((appName, index) => (
+          <DesktopIcon key={appName} appName={appName} index={index} />
         ))}
       </div>
+
+      <div className={styles.widgets}>
+        <InfoCard />
+        <StickyNote />
+      </div>
+
       {children}
+
+      <Dock />
     </div>
   );
 };

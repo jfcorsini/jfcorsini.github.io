@@ -1,0 +1,139 @@
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      120% 80% at 50% 110%,
+      rgba(16, 44, 34, 0.55) 0%,
+      transparent 60%
+    ),
+    linear-gradient(175deg, #0a0c12 0%, #07080b 45%, #05060a 100%);
+}
+
+/* Soft aurora bands, offset in hue and phase so they never line up. */
+.aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  will-change: transform;
+}
+
+.auroraOne {
+  top: -22%;
+  left: -12%;
+  width: 62vw;
+  height: 62vw;
+  background: radial-gradient(
+    circle,
+    rgba(45, 212, 191, 0.3) 0%,
+    transparent 68%
+  );
+  animation: drift-one 34s ease-in-out infinite;
+}
+
+.auroraTwo {
+  bottom: -30%;
+  right: -14%;
+  width: 68vw;
+  height: 68vw;
+  background: radial-gradient(
+    circle,
+    rgba(74, 222, 128, 0.22) 0%,
+    transparent 68%
+  );
+  animation: drift-two 44s ease-in-out infinite;
+}
+
+.auroraThree {
+  top: 22%;
+  right: 18%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.18) 0%,
+    transparent 70%
+  );
+  animation: drift-three 52s ease-in-out infinite;
+}
+
+@keyframes drift-one {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8vw, 6vh, 0) scale(1.14);
+  }
+}
+
+@keyframes drift-two {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-10vw, -5vh, 0) scale(0.94);
+  }
+}
+
+@keyframes drift-three {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  50% {
+    transform: translate3d(-6vw, 8vh, 0) scale(1.2);
+  }
+}
+
+/* Vignette keeps focus on the centre where windows open. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 90% 80% at 50% 45%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* Fine grain stops the large gradients from banding. */
+.grain {
+  position: absolute;
+  inset: -100%;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 6s steps(6) infinite;
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -2%);
+  }
+  80% {
+    transform: translate(3%, 1%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.particle {
+  position: absolute;
+  background: rgba(190, 255, 220, 0.7);
+  border-radius: 50%;
+  will-change: transform, opacity;
+  pointer-events: none;
+}

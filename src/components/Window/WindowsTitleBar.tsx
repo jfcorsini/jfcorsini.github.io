@@ -9,6 +9,12 @@ export const WindowsTitleBar = ({ children }: React.PropsWithChildren) => {
     useWindowsInternal();
   const apps = useApps();
 
+  /** Buttons sit inside the drag handle, so they must not start a drag. */
+  const button = (onClick: () => void) => ({
+    onPointerDown: (e: React.PointerEvent) => e.stopPropagation(),
+    onClick,
+  });
+
   return (
     <motion.div
       className={styles.titleBar}
@@ -16,13 +22,26 @@ export const WindowsTitleBar = ({ children }: React.PropsWithChildren) => {
         cursor: "var(--cursor)",
       }}
       onPointerDown={(e) => dragControls.start(e)}
+      onDoubleClick={() => setIsMaximized(!isMaximized)}
     >
       <div className={styles.buttons}>
-        <div onClick={closeWindow} className={styles.close} />
-        <div onClick={() => apps.minimize(name)} className={styles.hide} />
         <div
-          onClick={() => setIsMaximized(!isMaximized)}
+          {...button(closeWindow)}
+          className={styles.close}
+          role="button"
+          aria-label="Close window"
+        />
+        <div
+          {...button(() => apps.minimize(name))}
+          className={styles.hide}
+          role="button"
+          aria-label="Minimize window"
+        />
+        <div
+          {...button(() => setIsMaximized(!isMaximized))}
           className={styles.resize}
+          role="button"
+          aria-label={isMaximized ? "Restore window" : "Maximize window"}
         />
       </div>
       {children}

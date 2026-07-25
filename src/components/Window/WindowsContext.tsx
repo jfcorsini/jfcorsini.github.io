@@ -8,6 +8,7 @@ type WindowsInternalContextType = {
   isMaximized: boolean;
   setIsMaximized: (value: boolean) => void;
   closeWindow: () => void;
+  isFocused: boolean;
 };
 
 export const WindowsInternalContext = createContext<

@@ -1,54 +1,37 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
+import { PROJECTS, type Project } from "../../lib/projects";
 import { Windows } from "../Window";
 import { WindowUrlTitleBar } from "../Window/WindowsUrlTitleBar";
 import styles from "./ProjectWindow.module.css";
 
-const tabs = {
-  dress4weather: {
-    url: "https://www.dress4weather.com",
-    name: "Dress4Weather",
-  },
-  casting: {
-    url: "https://www.kivacast.com",
-    name: "KivaCast",
-  },
-};
-
-type Tab = keyof typeof tabs;
-
 export const ProjectsWindow: React.FC = () => {
-  const [tab, setTab] = useState<Tab>("dress4weather");
+  const [tab, setTab] = useState<Project>(PROJECTS[0]);
 
   return (
     <Windows name="projects" width="1200px" height="720px">
       <Windows.TitleBar>
-        <WindowUrlTitleBar
-          openUrlOnClick
-          url={tabs[tab].url}
-          iconName="Folder"
-        />
+        <WindowUrlTitleBar openUrlOnClick url={tab.url} iconName="Folder" />
       </Windows.TitleBar>
       <Windows.Content>
         <div className={styles.content}>
           <div className={styles.tabContainer}>
-            {Object.keys(tabs).map((_t) => {
-              const t = _t as Tab;
-              const isSelected = tab === t;
+            {PROJECTS.map((project) => {
+              const isSelected = tab.id === project.id;
 
               return (
                 <motion.div
-                  key={"tab-" + t}
+                  key={"tab-" + project.id}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => setTab(t)}
+                  onClick={() => setTab(project)}
                   className={`${styles.tab} ${isSelected ? styles.tabSelected : ""}`}
                 >
-                  {tabs[t].name}
+                  {project.name}
                 </motion.div>
               );
             })}
           </div>
-          <iframe src={tabs[tab].url} />
+          <iframe src={tab.url} />
         </div>
       </Windows.Content>
     </Windows>

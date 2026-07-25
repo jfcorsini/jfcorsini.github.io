@@ -19,9 +19,14 @@ export const PortfolioWindowContent = () => {
     <div className={styles.container}>
       <article className={styles.content}>
         <header>
+          <p className={styles.eyebrow}>
+            <span className={styles.eyebrowDot} />
+            Helsinki, Finland
+          </p>
           <h1 className={styles.name}>João F. Corsini</h1>
           <p className={styles.tagline}>
-            Software Engineer based in Helsinki, Finland
+            <strong>Full stack engineer</strong> with nine years spent building
+            web applications end to end.
           </p>
         </header>
         <nav className={styles.socialLinks} aria-label="Social media links">

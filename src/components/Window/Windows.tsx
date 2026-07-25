@@ -1,7 +1,13 @@
-import { AnimatePresence, motion, useDragControls } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useDragControls,
+  useMotionValue,
+} from "motion/react";
 import React, { useState } from "react";
 import { useApps } from "../../context/hooks";
-import type { AppName } from "../../lib/appName";
+import { APP_NAMES, type AppName } from "../../lib/appName";
+import { CASCADE_STEP } from "../../lib/layout";
 import styles from "./Windows.module.css";
 import { WindowsInternalContext } from "./WindowsContext";
 
@@ -20,13 +26,29 @@ export const WindowsRoot = ({
   const dragControls = useDragControls();
   const [isMaximized, setIsMaximized] = useState(false);
 
+  // Drag offset from the CSS resting position. Owned by Motion alone: keeping it
+  // out of `animate` is what stops a re-render from snapping the window back.
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
   const apps = useApps();
   const isOpen = !apps.closed.includes(name) && !apps.minimized.includes(name);
+  const isFocused = apps.focused === name;
+
+  /** Maximising is relative to the viewport, so any drag offset must go. */
+  const maximize = (value: boolean) => {
+    x.set(0);
+    y.set(0);
+    setIsMaximized(value);
+  };
 
   const closeWindow = () => {
-    setIsMaximized(false);
+    maximize(false);
     apps.close(name);
   };
+
+  // Stagger resting positions so stacked windows stay individually reachable.
+  const cascade = APP_NAMES.indexOf(name) * CASCADE_STEP;
 
   return (
     <WindowsInternalContext.Provider
@@ -34,8 +56,9 @@ export const WindowsRoot = ({
         name,
         dragControls,
         isMaximized,
-        setIsMaximized,
+        setIsMaximized: maximize,
         closeWindow,
+        isFocused,
       }}
     >
       <AnimatePresence>
@@ -46,26 +69,27 @@ export const WindowsRoot = ({
             dragControls={dragControls}
             dragMomentum={false}
             dragListener={false}
-            className={`${styles.container} ${isMaximized ? styles.maximized : ""}`}
-            exit={{ y: 1000, opacity: 0.5 }}
+            onPointerDown={() => apps.focus(name)}
+            className={`${styles.container} ${
+              isMaximized ? styles.maximized : ""
+            } ${isFocused ? "" : styles.unfocused}`}
+            style={{
+              x,
+              y,
+              zIndex: apps.zIndexOf(name),
+              width: isMaximized ? undefined : width,
+              height: isMaximized ? undefined : height,
+              "--cascade": `${cascade}px`,
+            }}
+            exit={{ opacity: 0, scale: 0.96 }}
             initial={{
-              x: "-50%",
-              y: "110%",
-              left: "50%",
-              top: "110%",
-              width: isMaximized ? "100vw" : width,
-              height: isMaximized ? "100vh" : height,
-              borderRadius: isMaximized ? 0 : "var(--border-radius)",
+              opacity: 0,
+              scale: 0.94,
               "--cursor": "grab",
             }}
             animate={{
-              x: isMaximized ? 0 : "-50%",
-              y: isMaximized ? 0 : "-50%",
-              left: isMaximized ? 0 : "50%",
-              top: isMaximized ? 0 : "50%",
-              width: isMaximized ? "100vw" : width,
-              height: isMaximized ? "100vh" : height,
-              borderRadius: isMaximized ? 0 : "var(--border-radius)",
+              opacity: 1,
+              scale: 1,
               "--cursor": "grab",
             }}
             whileDrag={{

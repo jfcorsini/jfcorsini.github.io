@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useMemo } from "react";
-import styles from "./Desktop.module.css";
+import styles from "./Wallpaper.module.css";
 
 const TOTAL_PARTICLES = 40;
 
@@ -13,18 +13,19 @@ export const Particles = () => {
         id: `particle-${index}`,
         position: Math.random() * 100,
         delay: Math.random() * 10,
-        size: 2 + Math.random() * 5,
+        size: 1 + Math.random() * 3,
         duration: Math.random() * 15 + 15,
         drift: (Math.random() - 0.5) * 30,
-        initialOpacity: 0.3 + Math.random() * 0.7,
-        finalOpacity: Math.random() * 0.3,
+        initialOpacity: 0.2 + Math.random() * 0.5,
+        finalOpacity: Math.random() * 0.2,
+        blur: Math.random() > 0.7 ? 1.5 : 0,
         ease: easeOptions[Math.floor(Math.random() * easeOptions.length)],
       };
     });
   }, []);
 
   return (
-    <div className={styles.particlesContainer}>
+    <>
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -33,6 +34,7 @@ export const Particles = () => {
             width: particle.size,
             height: particle.size,
             left: `${particle.position}%`,
+            filter: particle.blur ? `blur(${particle.blur}px)` : undefined,
           }}
           initial={{
             top: "105%",
@@ -53,6 +55,6 @@ export const Particles = () => {
           }}
         />
       ))}
-    </div>
+    </>
   );
 };
