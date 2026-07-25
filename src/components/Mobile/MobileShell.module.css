@@ -46,7 +46,11 @@
 }
 
 .hero {
-  margin-bottom: 2.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.entry {
+  margin-bottom: 1.75rem;
 }
 
 .heroDate {

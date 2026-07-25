@@ -43,7 +43,11 @@ export const HomeScreen = ({ onOpen }: Props) => {
         </p>
       </motion.header>
 
-      <DateEntryCard />
+      {/* The wrapper holds its spacing on days with no entry, so the apps
+          sit in the same place either way. */}
+      <div className={styles.entry}>
+        <DateEntryCard />
+      </div>
 
       <div className={styles.grid}>
         {APP_NAMES.map((appName, index) => {

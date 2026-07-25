@@ -1,5 +1,7 @@
 .card {
   width: 100%;
+  /* Padding has to sit inside the column, or the card runs off the phone. */
+  box-sizing: border-box;
   border-radius: var(--border-radius);
   background: var(--glass);
   backdrop-filter: blur(20px) saturate(160%);
