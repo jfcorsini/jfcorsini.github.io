@@ -48,11 +48,11 @@
   border-radius: 24%;
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.13),
-    rgba(255, 255, 255, 0.03)
+    rgba(var(--tint-rgb), 0.13),
+    rgba(var(--tint-rgb), 0.03)
   );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(var(--tint-rgb), 0.08);
+  box-shadow: inset 0 1px 0 rgba(var(--tint-rgb), 0.16);
   color: var(--text);
 }
 
@@ -64,10 +64,10 @@
 .item:hover .tile {
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.24),
-    rgba(255, 255, 255, 0.06)
+    rgba(var(--tint-rgb), 0.24),
+    rgba(var(--tint-rgb), 0.06)
   );
-  border-color: rgba(255, 255, 255, 0.34);
+  border-color: rgba(var(--tint-rgb), 0.34);
   color: var(--accent);
 }
 
@@ -102,5 +102,5 @@
   width: 1px;
   align-self: stretch;
   margin: 0.4rem 0.35rem;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(var(--tint-rgb), 0.12);
 }

@@ -7,6 +7,7 @@ import { ProjectsWindow } from "./components/ProjectsWindow/ProjectsWindow.tsx";
 import { SnakeWindow } from "./components/SnakeWindow/SnakeWindow.tsx";
 import { MobileShell } from "./components/Mobile/MobileShell.tsx";
 import { AppsProvider } from "./context/AppsProvider.tsx";
+import { ThemeProvider } from "./context/ThemeProvider.tsx";
 import { useIsMobile } from "./lib/useIsMobile.ts";
 import "./index.css";
 
@@ -35,6 +36,8 @@ const Root = () => {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Root />
+    <ThemeProvider>
+      <Root />
+    </ThemeProvider>
   </StrictMode>,
 );

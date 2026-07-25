@@ -15,33 +15,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Surfaces — near-black with a cool cast, so the accent reads warm. */
-  --bg-deep: #07080b;
-  --bg-raised: #0e1015;
-  --glass: rgba(20, 23, 30, 0.72);
-  --glass-strong: rgba(14, 16, 21, 0.88);
-  --glass-border: rgba(255, 255, 255, 0.09);
-  --glass-highlight: rgba(255, 255, 255, 0.14);
-
-  /* Text */
-  --text: #eef1f6;
-  --text-muted: rgba(238, 241, 246, 0.62);
-  --text-faint: rgba(238, 241, 246, 0.36);
-
-  /* Accent is deliberately colourless: status dots and active markers read as
-     bright text, not as branding. The one saturated colour on the site lives
-     inside Snake, where a green means something. */
-  --accent: #dfe3ea;
-  --accent-dim: rgba(223, 227, 234, 0.55);
-  --accent-glow: transparent;
-
   --border-radius: 14px;
   --radius-sm: 8px;
   --radius-lg: 20px;
-
-  --shadow-window:
-    0 2px 6px rgba(0, 0, 0, 0.28), 0 24px 60px -12px rgba(0, 0, 0, 0.7);
-  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.45);
 
   --menubar-height: 30px;
   --dock-height: 78px;
@@ -50,7 +26,138 @@
 
   color: var(--text);
   background-color: var(--bg-deep);
+}
+
+/*
+ * Themes.
+ *
+ * Two RGB triplets do most of the work: --tint-rgb is whatever colour lifts a
+ * surface away from its background, --shadow-rgb is whatever sinks it. In a
+ * dark theme tint is white; in a light theme it is near-black. Every border,
+ * hover state and inset highlight in the app is written as
+ * rgba(var(--tint-rgb), a), so the whole UI inverts from these two lines.
+ */
+[data-theme="dark"] {
   color-scheme: dark;
+
+  --tint-rgb: 255, 255, 255;
+  --shadow-rgb: 0, 0, 0;
+
+  --bg-deep: #07080b;
+  --bg-raised: #0e1015;
+  --bg-window: #0b0d12;
+  --field: rgba(0, 0, 0, 0.32);
+
+  --glass: rgba(20, 23, 30, 0.72);
+  --glass-strong: rgba(14, 16, 21, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --chrome: rgba(8, 10, 14, 0.55);
+
+  --text: #eef1f6;
+  --text-strong: #ffffff;
+  --text-muted: rgba(238, 241, 246, 0.62);
+  --text-faint: rgba(238, 241, 246, 0.36);
+
+  /* Accent is deliberately colourless: status dots and active markers read as
+     emphatic text, not as branding. The one saturated colour on the site lives
+     inside Snake, where a green means something. */
+  --accent: #dfe3ea;
+  --accent-dim: rgba(223, 227, 234, 0.55);
+  --accent-glow: transparent;
+  --selection: rgba(223, 227, 234, 0.22);
+
+  --wall-top: #0a0c12;
+  --wall-mid: #07080b;
+  --wall-bottom: #05060a;
+  --wall-floor: rgba(26, 30, 40, 0.55);
+  --blob-rgb: 148, 163, 184;
+  --vignette: rgba(0, 0, 0, 0.55);
+  --grain-opacity: 0.16;
+
+  --shadow-window:
+    0 2px 6px rgba(0, 0, 0, 0.28), 0 24px 60px -12px rgba(0, 0, 0, 0.7);
+  --shadow-float: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --tint-rgb: 26, 24, 20;
+  --shadow-rgb: 46, 38, 28;
+
+  --bg-deep: #e6e2da;
+  --bg-raised: #f4f2ed;
+  --bg-window: #fbfaf7;
+  --field: rgba(46, 38, 28, 0.06);
+
+  --glass: rgba(248, 246, 242, 0.74);
+  --glass-strong: rgba(252, 251, 248, 0.9);
+  --glass-border: rgba(26, 24, 20, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.7);
+  --chrome: rgba(246, 244, 239, 0.68);
+
+  --text: #1c1a16;
+  --text-strong: #000000;
+  --text-muted: rgba(28, 26, 22, 0.64);
+  --text-faint: rgba(28, 26, 22, 0.4);
+
+  --accent: #1c1a16;
+  --accent-dim: rgba(28, 26, 22, 0.55);
+  --accent-glow: transparent;
+  --selection: rgba(28, 26, 22, 0.16);
+
+  --wall-top: #eeebe4;
+  --wall-mid: #e6e2da;
+  --wall-bottom: #ddd8ce;
+  --wall-floor: rgba(255, 253, 248, 0.5);
+  --blob-rgb: 255, 252, 245;
+  --vignette: rgba(46, 38, 28, 0.14);
+  --grain-opacity: 0.05;
+
+  --shadow-window:
+    0 2px 6px rgba(46, 38, 28, 0.1), 0 24px 60px -14px rgba(46, 38, 28, 0.28);
+  --shadow-float: 0 8px 32px rgba(46, 38, 28, 0.18);
+}
+
+[data-theme="sepia"] {
+  color-scheme: light;
+
+  --tint-rgb: 74, 52, 22;
+  --shadow-rgb: 74, 52, 22;
+
+  --bg-deep: #ddceb2;
+  --bg-raised: #f0e4cd;
+  --bg-window: #f7edd9;
+  --field: rgba(74, 52, 22, 0.07);
+
+  --glass: rgba(244, 234, 214, 0.76);
+  --glass-strong: rgba(249, 241, 226, 0.91);
+  --glass-border: rgba(74, 52, 22, 0.16);
+  --glass-highlight: rgba(255, 250, 238, 0.65);
+  --chrome: rgba(240, 229, 206, 0.7);
+
+  --text: #3b2c17;
+  --text-strong: #241a0c;
+  --text-muted: rgba(59, 44, 23, 0.66);
+  --text-faint: rgba(59, 44, 23, 0.42);
+
+  --accent: #3b2c17;
+  --accent-dim: rgba(59, 44, 23, 0.55);
+  --accent-glow: transparent;
+  --selection: rgba(74, 52, 22, 0.18);
+
+  --wall-top: #e7d9bd;
+  --wall-mid: #ddceb2;
+  --wall-bottom: #d2c19f;
+  --wall-floor: rgba(255, 248, 230, 0.45);
+  --blob-rgb: 255, 248, 228;
+  --vignette: rgba(74, 52, 22, 0.16);
+  --grain-opacity: 0.07;
+
+  --shadow-window:
+    0 2px 6px rgba(74, 52, 22, 0.12), 0 24px 60px -14px rgba(74, 52, 22, 0.3);
+  --shadow-float: 0 8px 32px rgba(74, 52, 22, 0.2);
 }
 
 html,
@@ -68,8 +175,8 @@ body {
 }
 
 ::selection {
-  background: rgba(223, 227, 234, 0.22);
-  color: #fff;
+  background: var(--selection);
+  color: var(--text-strong);
 }
 
 @media (prefers-reduced-motion: reduce) {

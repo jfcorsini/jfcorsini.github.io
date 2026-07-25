@@ -58,6 +58,25 @@
 
     <!-- Additional SEO -->
     <meta name="theme-color" content="#000000" />
+
+    <!-- Resolve the theme before first paint, otherwise a light-theme visitor
+         gets a black flash while the bundle loads. -->
+    <script>
+      (function () {
+        var stored = null;
+        // Storage access throws in sandboxed iframes; the theme still has to land.
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {}
+        var theme =
+          stored === "light" || stored === "dark" || stored === "sepia"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

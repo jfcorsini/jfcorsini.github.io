@@ -6,10 +6,10 @@
   background:
     radial-gradient(
       120% 80% at 50% 110%,
-      rgba(26, 30, 40, 0.55) 0%,
+      var(--wall-floor) 0%,
       transparent 60%
     ),
-    linear-gradient(175deg, #0a0c12 0%, #07080b 45%, #05060a 100%);
+    linear-gradient(175deg, var(--wall-top) 0%, var(--wall-mid) 45%, var(--wall-bottom) 100%);
 }
 
 /* Soft aurora bands, offset in hue and phase so they never line up. */
@@ -27,7 +27,7 @@
   height: 62vw;
   background: radial-gradient(
     circle,
-    rgba(148, 163, 184, 0.16) 0%,
+    rgba(var(--blob-rgb), 0.16) 0%,
     transparent 68%
   );
   animation: drift-one 34s ease-in-out infinite;
@@ -40,7 +40,7 @@
   height: 68vw;
   background: radial-gradient(
     circle,
-    rgba(148, 163, 184, 0.14) 0%,
+    rgba(var(--blob-rgb), 0.14) 0%,
     transparent 68%
   );
   animation: drift-two 44s ease-in-out infinite;
@@ -53,7 +53,7 @@
   height: 40vw;
   background: radial-gradient(
     circle,
-    rgba(148, 163, 184, 0.10) 0%,
+    rgba(var(--blob-rgb), 0.10) 0%,
     transparent 70%
   );
   animation: drift-three 52s ease-in-out infinite;
@@ -96,7 +96,7 @@
   background: radial-gradient(
     ellipse 90% 80% at 50% 45%,
     transparent 40%,
-    rgba(0, 0, 0, 0.55) 100%
+    var(--vignette) 100%
   );
 }
 
@@ -104,7 +104,7 @@
 .grain {
   position: absolute;
   inset: -100%;
-  opacity: 0.16;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain-shift 6s steps(6) infinite;
 }
@@ -132,7 +132,7 @@
 
 .particle {
   position: absolute;
-  background: rgba(226, 232, 240, 0.7);
+  background: rgba(var(--tint-rgb), 0.55);
   border-radius: 50%;
   will-change: transform, opacity;
   pointer-events: none;

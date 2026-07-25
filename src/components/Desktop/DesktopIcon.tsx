@@ -14,11 +14,10 @@ export const DesktopIcon = ({ appName, index }: Props) => {
   const apps = useApps();
   const { label, iconName } = APP_META[appName];
   const Icon = icons[iconName];
-  const isRunning = !apps.closed.includes(appName);
 
   return (
     <motion.div
-      className={`${styles.icon} ${isRunning ? styles.iconActive : ""}`}
+      className={styles.icon}
       initial={{ opacity: 0, x: -16 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 0.15 + index * 0.07, ease: [0.16, 1, 0.3, 1] }}

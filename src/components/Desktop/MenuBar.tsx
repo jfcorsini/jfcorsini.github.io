@@ -6,6 +6,7 @@ import {
   useHelsinkiNow,
 } from "../../lib/useHelsinkiNow";
 import styles from "./MenuBar.module.css";
+import { ThemeMenu } from "./ThemeMenu";
 
 export const MenuBar = () => {
   const { focused } = useApps();
@@ -36,6 +37,7 @@ export const MenuBar = () => {
         >
           LinkedIn
         </a>
+        <ThemeMenu />
         <span className={styles.date}>{dateFormat.format(now)}</span>
         <span className={styles.clock}>{timeFormat.format(now)}</span>
       </div>

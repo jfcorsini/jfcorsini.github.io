@@ -25,24 +25,10 @@
   align-items: center;
   gap: 0.4rem;
   width: 92px;
-  padding: 0.6rem 0.35rem 0.5rem;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
 }
 
-.icon:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.icon.iconActive {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.32);
-}
-
+/* The tile is the whole hit highlight — a selection box drawn around the label
+   as well would be far larger than the thing being pointed at. */
 .iconGlyph {
   display: grid;
   place-items: center;
@@ -52,13 +38,14 @@
   color: var(--text);
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.14),
-    rgba(255, 255, 255, 0.03)
+    rgba(var(--tint-rgb), 0.14),
+    rgba(var(--tint-rgb), 0.03)
   );
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 6px 16px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(var(--tint-rgb), 0.1);
+  box-shadow: inset 0 1px 0 rgba(var(--tint-rgb), 0.18);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .iconGlyph svg {
@@ -67,7 +54,12 @@
 }
 
 .icon:hover .iconGlyph {
-  color: var(--accent);
+  background: linear-gradient(
+    160deg,
+    rgba(var(--tint-rgb), 0.24),
+    rgba(var(--tint-rgb), 0.06)
+  );
+  border-color: rgba(var(--tint-rgb), 0.26);
 }
 
 .icon span {
@@ -76,7 +68,6 @@
   font-weight: 500;
   letter-spacing: 0.01em;
   text-align: center;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
   user-select: none;
 }
 
