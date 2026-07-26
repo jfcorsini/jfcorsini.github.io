@@ -1,29 +1,27 @@
 import { motion } from "motion/react";
-import { useMemo } from "react";
 import styles from "./Wallpaper.module.css";
 
 const TOTAL_PARTICLES = 40;
 
 const easeOptions = ["easeIn", "easeOut", "linear"] as const;
 
-export const Particles = () => {
-  const particles = useMemo(() => {
-    return Array.from({ length: TOTAL_PARTICLES }).map((_, index) => {
-      return {
-        id: `particle-${index}`,
-        position: Math.random() * 100,
-        delay: Math.random() * 10,
-        size: 1 + Math.random() * 3,
-        duration: Math.random() * 15 + 15,
-        drift: (Math.random() - 0.5) * 30,
-        initialOpacity: 0.2 + Math.random() * 0.5,
-        finalOpacity: Math.random() * 0.2,
-        blur: Math.random() > 0.7 ? 1.5 : 0,
-        ease: easeOptions[Math.floor(Math.random() * easeOptions.length)],
-      };
-    });
-  }, []);
+// Scattered once at module load rather than during render: the field is purely
+// decorative, and re-rolling it on a re-render would make particles jump.
+const particles = Array.from({ length: TOTAL_PARTICLES }).map((_, index) => ({
+  id: `particle-${index}`,
+  position: Math.random() * 100,
+  delay: Math.random() * 10,
+  size: 1 + Math.random() * 3,
+  duration: Math.random() * 15 + 15,
+  drift: (Math.random() - 0.5) * 30,
+  initialOpacity: 0.2 + Math.random() * 0.5,
+  finalOpacity: Math.random() * 0.2,
+  blur: Math.random() > 0.7 ? 1.5 : 0,
+  repeatDelay: Math.random() * 2,
+  ease: easeOptions[Math.floor(Math.random() * easeOptions.length)],
+}));
 
+export const Particles = () => {
   return (
     <>
       {particles.map((particle) => (
@@ -50,7 +48,7 @@ export const Particles = () => {
             duration: particle.duration,
             delay: particle.delay,
             repeat: Infinity,
-            repeatDelay: Math.random() * 2,
+            repeatDelay: particle.repeatDelay,
             ease: particle.ease,
           }}
         />

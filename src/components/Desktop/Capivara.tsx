@@ -106,14 +106,19 @@ export const Capivara = () => {
     return () => window.clearTimeout(timer);
   }, [line]);
 
-  /* She reacts to the two things worth reacting to, then shuts up again. */
+  /* She reacts to the two things worth reacting to, then shuts up again.
+     Both triggers are context state owned elsewhere (the clock, the window
+     manager), and the bubble auto-hides on a timer, so there is nothing to
+     derive during render — an effect is the trigger we actually have. */
   const isTimeTravelling = today !== new Date().toISOString().slice(0, 10);
   const year = date.getFullYear();
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- see above
     if (isTimeTravelling) say(`${year}. I was here then too.`);
   }, [isTimeTravelling, year, say]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- see above
     if (focused === "snake") say("Arrow keys. No high score.");
   }, [focused, say]);
 
