@@ -1,6 +1,7 @@
 import React from "react";
 import { APP_NAMES } from "../../lib/appName";
 import { DateEntryCard } from "../DateEntry/DateEntryCard";
+import { Capivara } from "./Capivara";
 import styles from "./Desktop.module.css";
 import { DesktopIcon } from "./DesktopIcon";
 import { Dock } from "./Dock";
@@ -28,6 +29,7 @@ export const Desktop = ({ children }: React.PropsWithChildren) => {
 
       {children}
 
+      <Capivara />
       <Dock />
     </div>
   );

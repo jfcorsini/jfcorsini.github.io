@@ -1,0 +1,269 @@
+/* Bottom-left corner, clear of the icon column above and the dock in the middle. */
+.assistant {
+  position: absolute;
+  z-index: 3;
+  left: 1.5rem;
+  bottom: 1.5rem;
+}
+
+/*
+ * Gait drives the size of every walking movement: 0 standing, 1 at full
+ * stride. It follows the *speed* of the stroll rather than its position, so
+ * the legs wind down as she eases into a turn and are still at the moment she
+ * changes direction. Registered so it interpolates instead of jumping.
+ */
+@property --capivara-gait {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --capivara-swing {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --capivara-bounce {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.walker {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
+/*
+ * How far she gets from the corner before turning round. The bubble is towed
+ * along and the dock is centred, so the room she has is half the viewport
+ * minus her own width and the dock's half — hence the vw term. Below 1200px
+ * there is no room worth walking, so she stays in the corner and the whole
+ * gait stays switched off rather than marching on the spot.
+ */
+@media (min-width: 1200px) {
+  .walker {
+    --stroll: clamp(40px, 50vw - 560px, 320px);
+    animation:
+      stroll 30s ease-in-out infinite alternate,
+      gait 30s ease-in-out infinite;
+  }
+}
+
+@keyframes stroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--stroll));
+  }
+}
+
+/* Peaks mid-length, where the eased stroll is moving fastest. */
+@keyframes gait {
+  0%,
+  100% {
+    --capivara-gait: 0;
+  }
+  50% {
+    --capivara-gait: 1;
+  }
+}
+
+/*
+ * Twice the stroll period, so the flip lands exactly on a turn: she faces
+ * right on the way out, left on the way home. The drawing faces left, so
+ * "right" is the mirrored one.
+ */
+.facing {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .facing {
+    animation: facing 60s steps(1, end) infinite;
+  }
+}
+
+@keyframes facing {
+  0% {
+    transform: scaleX(-1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+/*
+ * Bob and step run at a fixed cadence but their amplitude is multiplied by the
+ * gait, so standing still means standing still: the transforms below collapse
+ * to zero on their own, with no animation to switch off.
+ */
+.bob {
+  display: block;
+  transform: translateY(
+    calc(var(--capivara-bounce) * var(--capivara-gait) * -2.5px)
+  );
+  animation: bob 0.62s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    --capivara-bounce: 0;
+  }
+  50% {
+    --capivara-bounce: 1;
+  }
+}
+
+/* Legs swing from the shoulder, half a cycle apart. */
+.legFront,
+.legBack {
+  transform: rotate(calc(var(--capivara-swing) * var(--capivara-gait) * 9deg));
+  animation: step 1.24s ease-in-out infinite;
+}
+
+.legFront {
+  transform-origin: 132px 352px;
+}
+
+.legBack {
+  transform-origin: 208px 362px;
+  animation-delay: -0.62s;
+}
+
+@keyframes step {
+  0%,
+  100% {
+    --capivara-swing: 1;
+  }
+  50% {
+    --capivara-swing: -1;
+  }
+}
+
+/* Point at her and she stops — the tips are easier to read standing still. */
+.assistant:hover .walker,
+.assistant:hover .facing,
+.assistant:hover .bob,
+.assistant:hover .legFront,
+.assistant:hover .legBack {
+  animation-play-state: paused;
+}
+
+.character {
+  display: block;
+  flex-shrink: 0;
+  width: 104px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text);
+  filter: drop-shadow(0 8px 16px rgba(var(--shadow-rgb), 0.45));
+}
+
+.character svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fixed browns rather than theme colours: she is an animal, not a UI chrome. */
+.body {
+  fill: #bc7e3a;
+}
+
+.dark {
+  fill: #875a28;
+}
+
+.crease {
+  fill: none;
+  stroke: #a46a2b;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.toe {
+  fill: none;
+  stroke: #633e17;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.eye {
+  fill: #4a3018;
+}
+
+.eyes {
+  animation: blink 7s infinite;
+  transform-origin: 186px 98px;
+}
+
+@keyframes blink {
+  0%,
+  93%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Reduced motion parks her in the corner, facing left, and stops the rest. */
+@media (prefers-reduced-motion: reduce) {
+  .eyes,
+  .walker,
+  .facing,
+  .bob,
+  .legFront,
+  .legBack {
+    animation: none;
+  }
+}
+
+/* Sized by the line, not the other way round: one short sentence, one row. */
+.bubble {
+  position: relative;
+  max-width: 240px;
+  margin: 0 0 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text);
+  border-radius: var(--border-radius);
+  background: var(--glass-strong);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    var(--shadow-float);
+}
+
+/* A small square rotated into a diamond makes the tail, border and all. */
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  bottom: 12px;
+  width: 10px;
+  height: 10px;
+  background: var(--glass-strong);
+  border-left: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  transform: rotate(45deg);
+}
+
+/* Below this the desktop is tight enough without livestock in the corner. */
+@media (max-width: 900px) {
+  .assistant {
+    display: none;
+  }
+}
