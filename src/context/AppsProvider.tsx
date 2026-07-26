@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState, type PropsWithChildren } from "react";
-import { APP_NAMES, type AppName } from "../lib/appName";
+import type { AppName } from "../lib/appName";
+import { VISIBLE_APPS } from "../lib/apps";
 import { AppsContext } from "./AppsContext";
 
 /** Windows sit above the desktop chrome but below the dock and menu bar. */
@@ -32,9 +33,13 @@ const raise = (stack: AppName[], id: AppName) => [
 ];
 
 export const AppsProvider = ({ children }: PropsWithChildren) => {
-  const [closed, setClosed] = useState<AppName[]>(["projects", "snake"]);
+  const [closed, setClosed] = useState<AppName[]>([
+    "projects",
+    "notes",
+    "snake",
+  ]);
   const [minimized, setMinimized] = useState<AppName[]>([]);
-  const [stack, setStack] = useState<AppName[]>([...APP_NAMES]);
+  const [stack, setStack] = useState<AppName[]>([...VISIBLE_APPS]);
   const [hasExplored, setHasExplored] = useState(readExplored);
 
   const close = useCallback((id: AppName) => {

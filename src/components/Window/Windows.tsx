@@ -6,7 +6,8 @@ import {
 } from "motion/react";
 import React, { useState } from "react";
 import { useApps } from "../../context/hooks";
-import { APP_NAMES, type AppName } from "../../lib/appName";
+import type { AppName } from "../../lib/appName";
+import { VISIBLE_APPS } from "../../lib/apps";
 import { CASCADE_STEP } from "../../lib/layout";
 import styles from "./Windows.module.css";
 import { WindowsInternalContext } from "./WindowsContext";
@@ -48,7 +49,7 @@ export const WindowsRoot = ({
   };
 
   // Stagger resting positions so stacked windows stay individually reachable.
-  const cascade = APP_NAMES.indexOf(name) * CASCADE_STEP;
+  const cascade = VISIBLE_APPS.indexOf(name) * CASCADE_STEP;
 
   return (
     <WindowsInternalContext.Provider

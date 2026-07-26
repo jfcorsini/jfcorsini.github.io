@@ -2,6 +2,7 @@ import { motion, useDragControls, type PanInfo } from "motion/react";
 import { useEffect } from "react";
 import type { AppName } from "../../lib/appName";
 import { APP_META } from "../../lib/apps";
+import { NotesWindowContent } from "../NotesWindow/NotesWindowContent";
 import { PortfolioWindowContent } from "../PortfolioWindow/PortfolioWindowContent";
 import styles from "./AppScreen.module.css";
 import { MobileProjects } from "./MobileProjects";
@@ -15,6 +16,7 @@ type Props = {
 const CONTENT: Record<AppName, () => React.ReactNode> = {
   portfolio: PortfolioWindowContent,
   projects: MobileProjects,
+  notes: NotesWindowContent,
   snake: MobileSnake,
 };
 
@@ -36,7 +38,10 @@ export const AppScreen = ({ appName, onClose }: Props) => {
   }, [onClose]);
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.y > DISMISS_DISTANCE || info.velocity.y > DISMISS_VELOCITY) {
+    if (
+      info.offset.y > DISMISS_DISTANCE ||
+      info.velocity.y > DISMISS_VELOCITY
+    ) {
       onClose();
     }
   };

@@ -4,6 +4,7 @@ import Globe from "../assets/icons/globe.svg?react";
 import Linkedin from "../assets/icons/linkedin.svg?react";
 import LockClosed from "../assets/icons/lock-closed.svg?react";
 import LockOpen from "../assets/icons/lock-open.svg?react";
+import Notes from "../assets/icons/notes.svg?react";
 import Snake from "../assets/icons/snake.svg?react";
 
 export const icons = {
@@ -11,6 +12,7 @@ export const icons = {
   Folder,
   LockClosed,
   LockOpen,
+  Notes,
   Snake,
   Github,
   Linkedin,

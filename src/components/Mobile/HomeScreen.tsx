@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { APP_NAMES, type AppName } from "../../lib/appName";
-import { APP_META } from "../../lib/apps";
+import type { AppName } from "../../lib/appName";
+import { APP_META, VISIBLE_APPS } from "../../lib/apps";
 import { icons } from "../../lib/icons";
 import { DateControl } from "../DateControl/DateControl";
 import { DateEntryCard } from "../DateEntry/DateEntryCard";
@@ -50,7 +50,7 @@ export const HomeScreen = ({ onOpen }: Props) => {
       </div>
 
       <div className={styles.grid}>
-        {APP_NAMES.map((appName, index) => {
+        {VISIBLE_APPS.map((appName, index) => {
           const { label, iconName } = APP_META[appName];
           const Icon = icons[iconName];
 
@@ -78,7 +78,7 @@ export const HomeScreen = ({ onOpen }: Props) => {
             target="_blank"
             rel="noopener noreferrer"
             whileTap={{ scale: 0.9 }}
-            {...enter(APP_NAMES.length + index + 1)}
+            {...enter(VISIBLE_APPS.length + index + 1)}
           >
             <span className={`${styles.appTile} ${styles.appTileLink}`}>
               <Icon />
@@ -88,7 +88,7 @@ export const HomeScreen = ({ onOpen }: Props) => {
         ))}
       </div>
 
-      <motion.p className={styles.hint} {...enter(APP_NAMES.length + 3)}>
+      <motion.p className={styles.hint} {...enter(VISIBLE_APPS.length + 3)}>
         Tap an app. On a laptop this is a whole desktop.
       </motion.p>
     </div>

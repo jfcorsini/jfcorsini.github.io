@@ -1,6 +1,6 @@
 import React from "react";
 import { useApps } from "../../context/hooks";
-import { APP_NAMES } from "../../lib/appName";
+import { VISIBLE_APPS } from "../../lib/apps";
 import { DateEntryCard } from "../DateEntry/DateEntryCard";
 import { Capivara } from "./Capivara";
 import styles from "./Desktop.module.css";
@@ -19,7 +19,7 @@ export const Desktop = ({ children }: React.PropsWithChildren) => {
       <MenuBar />
 
       <div className={styles.iconsContainer}>
-        {APP_NAMES.map((appName, index) => (
+        {VISIBLE_APPS.map((appName, index) => (
           <DesktopIcon key={appName} appName={appName} index={index} />
         ))}
       </div>

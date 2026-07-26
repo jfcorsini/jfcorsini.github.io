@@ -1,0 +1,153 @@
+.page {
+  min-height: 100dvh;
+  background: var(--bg-window);
+  color: var(--text);
+  padding: clamp(2.5rem, 8vw, 6rem) 1.5rem 4rem;
+}
+
+.column {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.masthead {
+  margin-bottom: 3rem;
+}
+
+.mastheadTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  color: var(--text-strong);
+}
+
+.mastheadBlurb {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(var(--tint-rgb), 0.12);
+}
+
+.indexItem {
+  display: block;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(var(--tint-rgb), 0.12);
+  text-decoration: none;
+  color: inherit;
+
+  &:hover .indexTitle {
+    color: var(--text-strong);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+}
+
+.indexDate {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 0.35rem;
+}
+
+.indexTitle {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.indexSummary {
+  display: block;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.articleHeader {
+  margin-bottom: 2.5rem;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 1.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text-strong);
+  }
+}
+
+.articleTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.7rem;
+  color: var(--text-strong);
+}
+
+.articleMeta {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+
+  a {
+    color: var(--text-muted);
+  }
+}
+
+.missing {
+  padding-bottom: 2rem;
+}
+
+.empty {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Larger than the same prose inside a window: here the page is the reader. */
+.prose {
+  composes: prose from "../../styles/prose.module.css";
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.footer {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(var(--tint-rgb), 0.12);
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+
+  a {
+    color: var(--text-faint);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--text-strong);
+    }
+  }
+}

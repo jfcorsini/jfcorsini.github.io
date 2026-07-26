@@ -1,0 +1,153 @@
+.layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.empty {
+  padding: 2rem;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
+
+.list {
+  width: 260px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border-right: 1px solid rgba(var(--tint-rgb), 0.08);
+  background: rgba(var(--tint-rgb), 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.listHeader {
+  margin: 0.3rem 0.6rem 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.55rem 0.6rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(var(--tint-rgb), 0.06);
+  }
+}
+
+.listItemActive,
+.listItemActive:hover {
+  background: rgba(var(--tint-rgb), 0.11);
+}
+
+.listTitle {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.listMeta {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+
+/* Two lines of summary keeps every row the same height without measuring. */
+.listSummary {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.reader {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 2rem 2.4rem 3rem;
+}
+
+.readerHeader {
+  max-width: 62ch;
+  margin-bottom: 1.6rem;
+}
+
+.readerTitle {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--text-strong);
+}
+
+.readerMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+}
+
+.readerLink {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(var(--tint-rgb), 0.22);
+
+  &:hover {
+    color: var(--text-strong);
+  }
+}
+
+.prose {
+  composes: prose from "../../styles/prose.module.css";
+  max-width: 62ch;
+}
+
+/* Phone: the list and the post stack, since there is no room to split them. */
+@media (max-width: 760px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .list {
+    width: auto;
+    max-height: 42%;
+    border-right: none;
+    border-bottom: 1px solid rgba(var(--tint-rgb), 0.08);
+  }
+
+  .listSummary {
+    display: none;
+  }
+
+  .reader {
+    padding: 1.4rem 1.2rem 2.5rem;
+  }
+
+  .readerTitle {
+    font-size: 1.45rem;
+  }
+}

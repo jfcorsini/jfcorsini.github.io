@@ -1,3 +1,24 @@
+# jfcorsini.com
+
+## Writing a note
+
+Add a markdown file to `src/content/blog/`. The filename is the URL slug.
+
+```markdown
+---
+title: A desktop in a browser tab
+date: 2026-07-20
+summary: One line, used in the list and as the page description.
+---
+
+Body in markdown.
+```
+
+That is the whole step. The post then shows up in two places: the Notes app on
+the desktop, and the reading view at `/blog/<slug>`. The build emits a real
+`index.html` per post so shared links survive GitHub Pages, and regenerates
+`sitemap.xml`.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

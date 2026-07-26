@@ -1,8 +1,7 @@
 import { motion } from "motion/react";
 import { useState, type ReactNode } from "react";
 import { useApps } from "../../context/hooks";
-import { APP_NAMES } from "../../lib/appName";
-import { APP_META } from "../../lib/apps";
+import { APP_META, VISIBLE_APPS } from "../../lib/apps";
 import { icons } from "../../lib/icons";
 import styles from "./Dock.module.css";
 
@@ -50,7 +49,7 @@ export const Dock = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.35, type: "spring", stiffness: 180, damping: 22 }}
       >
-        {APP_NAMES.map((appName) => {
+        {VISIBLE_APPS.map((appName) => {
           const { label, iconName } = APP_META[appName];
           const Icon = icons[iconName];
           const isRunning = !apps.closed.includes(appName);
