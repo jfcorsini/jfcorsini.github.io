@@ -81,7 +81,6 @@ const CapivaraGlyph = () => (
  * away on its own — nothing here is important enough to sit on screen.
  */
 const LINES = [
-  "This is a capybara. She is quiet by default.",
   "João is a Brazilian living in Finland.",
   "The menu bar date is editable.",
   "You can check what's shipped in Projects.",
@@ -123,6 +122,8 @@ export const Capivara = () => {
   }, [focused, say]);
 
   return (
+    /* The delay outlasts the window that just opened, so she reads as having
+       wandered in rather than as a reward that popped out of the click. */
     <motion.div
       className={styles.assistant}
       initial={{ opacity: 0, y: 24 }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { useApps } from "../../context/hooks";
 import { APP_NAMES } from "../../lib/appName";
 import { DateEntryCard } from "../DateEntry/DateEntryCard";
 import { Capivara } from "./Capivara";
@@ -10,6 +11,8 @@ import { Wallpaper } from "./Wallpaper";
 import { InfoCard, StickyNote } from "./Widgets";
 
 export const Desktop = ({ children }: React.PropsWithChildren) => {
+  const { hasExplored } = useApps();
+
   return (
     <div className={styles.container}>
       <Wallpaper />
@@ -29,7 +32,9 @@ export const Desktop = ({ children }: React.PropsWithChildren) => {
 
       {children}
 
-      <Capivara />
+      {/* She waits until someone has opened a window of their own accord. A
+          first look at the desktop is a résumé; she is for the second look. */}
+      {hasExplored && <Capivara />}
       <Dock />
     </div>
   );
