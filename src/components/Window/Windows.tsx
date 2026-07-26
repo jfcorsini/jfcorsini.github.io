@@ -79,7 +79,8 @@ export const WindowsRoot = ({
               zIndex: apps.zIndexOf(name),
               width: isMaximized ? undefined : width,
               height: isMaximized ? undefined : height,
-              "--cascade": `${cascade}px`,
+              // Custom properties are valid CSS but absent from MotionStyle.
+              ["--cascade" as string]: `${cascade}px`,
             }}
             exit={{ opacity: 0, scale: 0.96 }}
             initial={{
